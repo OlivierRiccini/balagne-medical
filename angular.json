@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jjo-showcase": {
+    "balagne-medical": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jjo-showcase",
+            "outputPath": "dist/balagne-medical",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "jjo-showcase:build"
+            "browserTarget": "balagne-medical:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "jjo-showcase:build:production"
+              "browserTarget": "balagne-medical:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "jjo-showcase:build"
+            "browserTarget": "balagne-medical:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "jjo-showcase-e2e": {
+    "balagne-medical-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "jjo-showcase:serve"
+            "devServerTarget": "balagne-medical:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "jjo-showcase:serve:production"
+              "devServerTarget": "balagne-medical:serve:production"
             }
           }
         },
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "jjo-showcase"
+  "defaultProject": "balagne-medical"
 }
