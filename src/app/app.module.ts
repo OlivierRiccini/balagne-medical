@@ -9,6 +9,7 @@ import { PharmacistsComponent } from './pharmacists/pharmacists.component';
 import { ContactComponent } from './contact/contact.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
     PharmacistsComponent,
     ContactComponent,
     TermsOfUseComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
