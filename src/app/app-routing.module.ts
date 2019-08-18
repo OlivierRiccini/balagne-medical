@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '',  component: HomeComponent },
   { path: 'services-particuliers',  component: IndividualsComponent },
   { path: 'services-professionnels',  component: ProfessionalsComponent },
-  { path: 'catalogue-pharmacies',  component: PharmacistsComponent },
+  { path: 'pharmacies',  component: PharmacistsComponent },
   { path: 'contact',  component: ContactComponent },
   { path: 'mentions-legales',  component: TermsOfUseComponent }
 ];

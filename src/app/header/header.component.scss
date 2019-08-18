@@ -2,17 +2,16 @@
 
 nav {
     height: $header-height;
-    width: 60vw;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     a {
         text-decoration: none;
         color: $brand-green;
-        // font-size: 18px;
         letter-spacing: 0.15em;
-        padding: 15px 20px;
+        padding: 10px 5px;
+        margin: 0 30px;
         position: relative;
     
     };
