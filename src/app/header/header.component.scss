@@ -1,7 +1,7 @@
 @import '../../sass/variables';
 
 nav {
-    height: 150px;
+    height: $header-height;
     width: 60vw;
     margin: 0 auto;
     display: flex;

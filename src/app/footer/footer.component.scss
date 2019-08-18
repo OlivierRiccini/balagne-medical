@@ -1,0 +1,36 @@
+@import '../../sass/variables';
+
+div {
+    display: flex;
+    height: $footer-height;
+    background: $brand-green;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+}
+
+a {
+    padding: 0px 5px;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+a:hover:after, .active-link:after  { 
+    width: 100%; 
+    left: 0; 
+}

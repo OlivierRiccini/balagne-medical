@@ -1,0 +1,6 @@
+@import '../sass/variables';
+
+.wrapper {
+    padding: 0 50px;
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}

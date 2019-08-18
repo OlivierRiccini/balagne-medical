@@ -1,7 +1,7 @@
-<ul>
-  <li><a routerLink="/">home</a></li>
-  <li><a routerLink="./services-particuliers">services-particuliers</a></li>
-  <li><a routerLink="./services-professionnels">services-professionnels</a></li>
-  <li><a routerLink="./contact">contact</a></li>
-  <li><a routerLink="./mentions-legales">mentions-legales</a></li>
-</ul>
+<div>
+  <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
+  <a routerLink="./services-particuliers" routerLinkActive="active-link">Particuliers</a>
+  <a routerLink="./services-professionnels" routerLinkActive="active-link">Professionnels</a>
+  <a routerLink="./contact" routerLinkActive="active-link">Contact</a>
+  <a routerLink="./mentions-legales" routerLinkActive="active-link">Mentions-legales</a>
+</div>
