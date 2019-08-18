@@ -1,0 +1,39 @@
+@import '../../sass/variables';
+
+nav {
+    height: 150px;
+    width: 60vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    a {
+        text-decoration: none;
+        color: $brand-green;
+        // font-size: 18px;
+        letter-spacing: 0.15em;
+        padding: 15px 20px;
+        position: relative;
+    
+    };
+    a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: $brand-green;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+    a:hover:after, .active-link:after  { 
+        width: 100%; 
+        left: 0; 
+    }
+}
+
+img {
+    height: 50%;
+}
