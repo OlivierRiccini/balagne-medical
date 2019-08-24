@@ -6,12 +6,13 @@ import { ProfessionalsComponent } from './professionals/professionals.component'
 import { PharmacistsComponent } from './pharmacists/pharmacists.component';
 import { ContactComponent } from './contact/contact.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
+import { AuthGuardLoad, AuthGuardActivate } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent },
   { path: 'services-particuliers',  component: IndividualsComponent },
   { path: 'services-professionnels',  component: ProfessionalsComponent },
-  { path: 'pharmacies',  component: PharmacistsComponent },
+  { path: 'pharmacies',  component: PharmacistsComponent, canActivate: [AuthGuardActivate] },
   { path: 'contact',  component: ContactComponent },
   { path: 'mentions-legales',  component: TermsOfUseComponent }
 ];

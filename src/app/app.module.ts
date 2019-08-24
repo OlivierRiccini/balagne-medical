@@ -10,6 +10,9 @@ import { ContactComponent } from './contact/contact.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthGuardActivate, AuthGuardLoad } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,14 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService, 
+    AuthGuardLoad, 
+    AuthGuardActivate
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
