@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,11 +8,18 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
+  public hide = true;
+  public form: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<AuthComponent>) { }
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
-  public onCloseDialog() {
-    this.dialogRef.close('Pizza!');
+  public onSubmit(): void {
+    console.log(this.form.value);
   }
 
 }

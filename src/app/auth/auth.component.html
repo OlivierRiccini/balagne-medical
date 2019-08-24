@@ -1,2 +1,12 @@
-<p>auth works!</p>
-<button mat-button (click)="onCloseDialog()">No Thanks</button>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+        <input matInput placeholder="Enter your email" id="email" formControlName="email" required>
+        <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+</form>

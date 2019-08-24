@@ -1,6 +1,6 @@
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
-import { Router, CanLoad, CanActivate, UrlSegment, Route, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanLoad, CanActivate, UrlSegment, Route, ActivatedRouteSnapshot, RouterStateSnapshot, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
  
 @Injectable()
@@ -23,13 +23,24 @@ export class AuthGuardLoad implements CanLoad {
 
 @Injectable()
 export class AuthGuardActivate implements CanActivate {
+  private previousUrl: string = '';
     
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+      this.previousUrl = this.router.routerState.snapshot.url;
+      this.router.events
+        .subscribe(event => {
+          if (event instanceof NavigationEnd) {
+            this.previousUrl = event.url;
+          }
+      });
+    }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       if (!this.authService.isLoggedIn()) {
-        this.router.navigate(['/']);
-        alert('Non identifié');
+        this.router.navigate(['auth']);
+        // this.router.navigate([this.previousUrl]);
+        // alert('Non identifié');
+        // console.log(route.url)
       }
       return this.authService.isLoggedIn();
     }

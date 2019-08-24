@@ -13,9 +13,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthGuardActivate, AuthGuardLoad } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CustomMaterialModule } from './custom-material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
 
 
@@ -37,14 +37,14 @@ import { AuthComponent } from './auth/auth.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    AdminDashboardModule
   ],
   providers: [
     AuthService, 
     AuthGuardLoad, 
     AuthGuardActivate
   ],
-  entryComponents: [AuthComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

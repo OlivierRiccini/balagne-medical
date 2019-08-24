@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomMaterialModule } from '../custom-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -8,6 +9,8 @@ import { CustomMaterialModule } from '../custom-material.module';
     CommonModule
   ],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     CustomMaterialModule
   ]
 })
