@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomMaterialModule } from './custom-material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SharedModule } from './shared/shared.module';
     ContactComponent,
     TermsOfUseComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AuthComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,6 +44,7 @@ import { SharedModule } from './shared/shared.module';
     AuthGuardLoad, 
     AuthGuardActivate
   ],
+  entryComponents: [AuthComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
