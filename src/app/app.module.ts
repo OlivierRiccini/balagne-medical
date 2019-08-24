@@ -31,10 +31,10 @@ import { SharedModule } from './shared/shared.module';
     FooterComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     SharedModule
   ],
   providers: [
