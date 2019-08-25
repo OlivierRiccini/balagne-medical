@@ -1,12 +1,17 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
-    <mat-form-field>
-        <input matInput placeholder="Enter your email" id="email" formControlName="email" required>
-        <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-    </mat-form-field>
-</form>
+<div class="flex-wrapper">
+    <p>Cette page est reservée aux pharmaciens. Si vous n'avez pas d'identifiants veuillez nous contacter.</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+        <mat-form-field>
+            <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
+            <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Entrez votre mot de pass" [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-button>S'identifer</button>
+        <button type="button" mat-button routerLink="../contact">Pas d'identifiants? Nous contacter</button>
+    </form>
+</div>
