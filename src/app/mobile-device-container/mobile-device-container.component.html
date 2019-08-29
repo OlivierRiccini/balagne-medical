@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+        <ul>
+            <li><a routerLink="./" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Accueil</a></li>
+            <li><a routerLink="./services-particuliers" routerLinkActive="active-link">Particuliers</a></li>
+            <li><a routerLink="./services-professionnels" routerLinkActive="active-link">Professionnels</a></li>
+            <li><a routerLink="./pharmacies" routerLinkActive="active-link">Pharmacies</a></li>
+            <li><a routerLink="./contact" routerLinkActive="active-link">Nous contacter</a></li>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-button (click)="sidenav.toggle()">
+            <i class="material-icons">menu</i>
+        </button>
+        <div class="mobile-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

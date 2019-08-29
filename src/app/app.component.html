@@ -1,5 +1,2 @@
-<app-header></app-header>
-<div class="wrapper">
-  <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
+<app-desktop-device-container *ngIf="deviseSize === 'desktop'"></app-desktop-device-container>
+<app-mobile-device-container *ngIf="deviseSize === 'mobile'"></app-mobile-device-container>

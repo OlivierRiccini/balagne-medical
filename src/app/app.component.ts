@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'balagne-medical';
+  public title = 'balagne-medical';
+  public deviseSize: string = 'desktop';
+
+  constructor() {
+    this.deviseSize = window.innerWidth > 990 ? 'desktop' : 'mobile';
+  }
+
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.deviseSize = event.target.innerWidth > 990 ? 'desktop' : 'mobile';
+    console.log(event.target.innerWidth);
+  }
 }
