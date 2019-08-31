@@ -12,7 +12,6 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.deviseSize = window.innerWidth > 990 ? 'desktop' : 'mobile';
-    // this.handleRedirection();
   }
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
@@ -20,10 +19,5 @@ export class AppComponent {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.deviseSize = event.target.innerWidth > 990 ? 'desktop' : 'mobile';
-    // this.handleRedirection();
   }
-
-  // private handleRedirection(): void {
-  //   this.deviseSize === 'desktop'  ? this.router.navigate(['desktop']) : this.router.navigate(['mobile']);
-  // }
 }
