@@ -17,8 +17,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
-import { DesktopDeviceContainerComponent } from './desktop-device-container/desktop-device-container.component';
-import { MobileDeviceContainerComponent } from './mobile-device-container/mobile-device-container.component';
 
 
 @NgModule({
@@ -32,9 +30,7 @@ import { MobileDeviceContainerComponent } from './mobile-device-container/mobile
     TermsOfUseComponent,
     HeaderComponent,
     FooterComponent,
-    AuthComponent,
-    DesktopDeviceContainerComponent,
-    MobileDeviceContainerComponent
+    AuthComponent
   ],
   imports: [
     BrowserAnimationsModule,
