@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { of, Observable } from 'rxjs';
-import { catchError, mapTo, tap } from 'rxjs/operators';
+import { of, Observable, BehaviorSubject } from 'rxjs';
+import { catchError, mapTo, tap, share } from 'rxjs/operators';
 // import { config } from './../../config';
 import * as jwt_decode from "jwt-decode";
 // import { UserInterfaceService } from './user-interface.service';
@@ -19,9 +19,14 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private readonly CURRENT_USER = 'CURRENT_USER';
+  private currentUserChange: BehaviorSubject<IUser>;
+  public currentUserChange$: Observable<IUser>;
 
   // constructor(private http: HttpClient, private router: Router, private userInterfaceService: UserInterfaceService) { }
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { 
+    this.currentUserChange = new BehaviorSubject<IUser>(this.getCurrentUser());
+    this.currentUserChange$ = this.currentUserChange.asObservable();
+  }
 
   public register(user: IUser): Observable<boolean> {
     return this.http.post<any>(`${config.apiUrl}/register`, user, { observe: 'response' as 'body' })
@@ -50,38 +55,38 @@ export class AuthService {
           const jwt = response.body.jwt;
           const refreshToken = response.body['refresh-token'];
           this.doLoginUser({jwt, refreshToken});
-          alert('Successfully logged in!');
+          // alert('Successfully logged in!');
           // this.userInterfaceService.success('Successfully logged in!');
-          this.router.navigate(['./', 'myspace']);
+          this.router.navigate(['./', 'pharmacies']);
         }),
         mapTo(true),
         catchError(error => {
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
           alert(error.error.message);
           // this.userInterfaceService.error(error.error.message);
           return of(false);
         }));
   }
 
-  public logout(): Observable<boolean> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'refreshToken': this.getRefreshToken()
-    });
-    const options = { headers: headers };
-    return this.http.post<any>(`${config.apiUrl}/logout`, null, options).pipe(
-      tap(() => {
-        this.doLogoutUser();
-        alert('Successfully logged out, see you!');
-        // this.userInterfaceService.success('Successfully logged out, see you!');
-      }),
-      mapTo(true),
-      catchError(error => {
-        alert(error.error.message);
-        // this.userInterfaceService.error(error.error.message);
-        return of(false);
-      }));
-  }
+  // public logout(): Observable<boolean> {
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'refreshToken': this.getRefreshToken()
+  //   });
+  //   const options = { headers: headers };
+  //   return this.http.post<any>(`${config.apiUrl}/logout`, null, options).pipe(
+  //     tap(() => {
+  //       this.doLogoutUser();
+  //       alert('Successfully logged out, see you!');
+  //       // this.userInterfaceService.success('Successfully logged out, see you!');
+  //     }),
+  //     mapTo(true),
+  //     catchError(error => {
+  //       alert(error.error.message);
+  //       // this.userInterfaceService.error(error.error.message);
+  //       return of(false);
+  //     }));
+  // }
 
   // public updateProfile(user: IUser, userId: string): Observable<boolean> {
   //   return this.http.put<any>(`http://localhost:3000/users/${userId}/update`, user).pipe(
@@ -99,13 +104,22 @@ export class AuthService {
   //       return of(false);
   //     }));
   // }
-
+  
+  public tokenIsExpired(): boolean {
+    const token: string = this.getJwtToken();
+    if (!token) {
+      return true;
+    } 
+    const decodedToken: {} = jwt_decode(this.getJwtToken());
+    const current_time = Date.now() / 1000;
+    return decodedToken['exp'] < current_time;
+  }
+  
   public updatePassword(userId: string, oldPassword: string, newPassword: string): Observable<any> {
-    console.log(oldPassword, newPassword);
     return this.http.patch<any>(`http://localhost:3000/users/${userId}/update-password`, {oldPassword, newPassword});
   }
-
-  public isLoggedIn() {
+  
+  public isLoggedIn(): boolean {
     return !!this.getJwtToken();
   }
 
@@ -149,49 +163,24 @@ export class AuthService {
     return user ? JSON.parse(user) : false;
   }
 
-  // public switchDialog(isAModeChange: boolean) {
-  //   this.switchDialogEvent.emit(isAModeChange);
-  // }
-
-  public autoLogout(): void {
-    this.logout().subscribe(
-      () => {
-        this.router.navigate(['/']);
-        // this.userInterfaceService.confirm({
-        //   message: 'Session expired, let\'s login!',
-        //   trueLabel: 'Let\'s login',
-        //   falseLabel: 'No thanks'
-        // })
-        // .subscribe((response: boolean) => {
-          //   response ? this.router.navigate(['/', 'signin']) : this.router.navigate(['./'])        
-          // });
-        const userResponse: boolean = confirm(`Session expired, let\'s login!`);
-        userResponse ? this.router.navigate(['/', 'signin']) : this.router.navigate(['./']);
-      }
-    );
-  }
-
   private doLoginUser(tokens: any) {
     const decoded: any = jwt_decode(tokens.jwt);
     const user = decoded.payload;
     this.storeCurrentUser(user);
-    // this.userLoggedEvent.emit(user);
     this.storeTokens(tokens);
+    this.currentUserChange.next(user);
   }
 
-  private doLogoutUser() {
+  public doLogoutUser() {
     this.removeCurrentUser();
     this.removeTokens();
-    // this.userLoggedEvent.emit(null);
+    this.currentUserChange.next(null);
+    this.router.navigate(['/', 'auth']);
   }
 
   public getRefreshToken() {
     return localStorage.getItem(this.REFRESH_TOKEN);
   }
-
-  // private storeJwtToken(jwt: string) {
-  //   localStorage.setItem(this.JWT_TOKEN, jwt);
-  // }
 
   private storeTokens(tokens: any) {
     localStorage.setItem(this.JWT_TOKEN, tokens.jwt);

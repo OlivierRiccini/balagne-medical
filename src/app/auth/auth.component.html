@@ -1,5 +1,6 @@
 <div class="flex-wrapper">
-    <p>Cette page est reservée aux pharmaciens. Si vous n'avez pas d'identifiants veuillez nous contacter.</p>
+    <p *ngIf="targetPath === 'pharmacies'">Cette page est reservée aux pharmaciens. Si vous n'avez pas d'identifiants veuillez nous contacter.</p>
+    <p *ngIf="targetPath === 'admin-dashboard'">Cette page est reservée aux administrateurs du site.</p>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
         <mat-form-field>
             <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>

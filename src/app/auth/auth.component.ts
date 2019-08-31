@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { NavigationEnd, Router, NavigationStart } from '@angular/router';
+import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,29 +9,20 @@ import { Subscription } from 'rxjs';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit, OnDestroy {
+export class AuthComponent implements OnDestroy {
   public hide = true;
   public form: FormGroup;
+  public targetPath: string;
   private subscription: Subscription = new Subscription();
-  private previousUrl: string = '';
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private activatedRoute: ActivatedRoute) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
-  }
-  
-  public ngOnInit(): void {
-    // this.previousUrl = this.router.routerState.snapshot.url;
-    // console.log(this.previousUrl);
-    // this.subscription.add(this.router.events
-    //   .subscribe(event => {
-    //     console.log(event)
-    //     if (event instanceof NavigationStart) {
-    //       this.previousUrl = event.url;
-    //     }
-    // }));
+    this.subscription.add(
+      this.activatedRoute.params.subscribe(params => this.targetPath = params.target)
+    );
   }
 
   public ngOnDestroy(): void {
@@ -42,7 +33,6 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.authService.login(this.form.value).subscribe(
       resp => console.log(resp)
     )
-    // console.log(this.form.value);
   }
 
 }

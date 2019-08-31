@@ -12,7 +12,7 @@ export class AuthGuardLoad implements CanLoad {
         route: Route,
         segments: UrlSegment[]
       ): Observable<boolean> | Promise<boolean> | boolean {
-        if (!this.authService.isLoggedIn()) {
+        if (!this.authService.isLoggedIn() || this.authService.tokenIsExpired()) {
           // this.router.navigate(['/signup']);
           alert('Non identifié');
         }
@@ -28,12 +28,24 @@ export class AuthGuardActivate implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    const targetPath: string = route.routeConfig.path;
+    console.log(targetPath);
     if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['auth']);
-      // this.router.navigate([this.previousUrl]);
-      // alert('Non identifié');
+      this.router.navigate([targetPath, 'auth']);
+      return false;
     }
-    return this.authService.isLoggedIn();
+    if (this.authService.tokenIsExpired()) {
+      this.authService.refreshToken().subscribe(
+        () => {
+          return true;
+        },
+        (err) => {
+          this.authService.doLogoutUser();
+          return false;
+        }
+      );
+    }
+    return true;
   }
  
 }

@@ -24,6 +24,7 @@
             <button mat-button (click)="sidenav.toggle()">
                 <i class="material-icons">menu</i>
             </button>
+            <span>{{ currentUser.username }}</span>
             <img src="../assets/images/balagne-medical.png" routerLink="/" />
         </header>
         <div [ngClass]="{'desktop-wrapper': deviseSize === 'desktop', 'mobile-wrapper': deviseSize === 'mobile'}">

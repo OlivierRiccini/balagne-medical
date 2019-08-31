@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { IUser } from './models/user';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AppComponent {
   public title = 'balagne-medical';
   public deviseSize: string = 'desktop';
+  public currentUser: IUser;
 
-  constructor(private router: Router) {
+  constructor(private authService: AuthService) {
     this.deviseSize = window.innerWidth > 990 ? 'desktop' : 'mobile';
+    this.authService.currentUserChange$.subscribe((user: IUser) => this.currentUser = user);
   }
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  public onResize(event): void {
     this.deviseSize = event.target.innerWidth > 990 ? 'desktop' : 'mobile';
   }
 }

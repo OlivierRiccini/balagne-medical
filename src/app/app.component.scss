@@ -32,6 +32,37 @@ header {
     }
 }
 
+mat-sidenav ul {
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+    li {
+        padding: .8rem;
+    }
+    a {
+        text-decoration: none;
+        color: $brand-green;
+        padding: .2rem 0;
+        position: relative;
+    };
+    a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: $brand-green;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+    a:hover:after, .active-link:after  { 
+        width: 100%; 
+        left: 0; 
+    }
+}
+
 mat-sidenav-content {
     overflow: hidden;
 }

@@ -11,13 +11,13 @@ import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'auth', component: AuthComponent },
+    { path: ':target/auth', component: AuthComponent },
     { path: 'services-particuliers', component: IndividualsComponent },
     { path: 'services-professionnels', component: ProfessionalsComponent },
-    { path: 'pharmacies', component: PharmacistsComponent, canActivate: [AuthGuardActivate], data: { device: 'desktop' } },
+    { path: 'pharmacies', component: PharmacistsComponent, canActivate: [AuthGuardActivate] },
     { path: 'contact',  component: ContactComponent },
     { path: 'mentions-legales',  component: TermsOfUseComponent },
-    { path: 'admin-dashboard', canActivate: [AuthGuardActivate], data: { device: 'desktop' }, loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
+    { path: 'admin-dashboard', canActivate: [AuthGuardActivate], loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
       .then(m => m.AdminDashboardModule) 
     },
     { path: "**", redirectTo: '/' }
