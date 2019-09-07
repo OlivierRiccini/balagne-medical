@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   public title = 'balagne-medical';
-  public deviseSize: string = 'desktop';
+  public deviseSize = 'desktop';
   public currentUser: IUser;
 
   constructor(private authService: AuthService) {

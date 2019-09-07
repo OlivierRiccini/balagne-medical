@@ -2,10 +2,10 @@ import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { Router, CanLoad, CanActivate, UrlSegment, Route, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
- 
+
 @Injectable()
 export class AuthGuardLoad implements CanLoad {
-    
+
     constructor(private authService: AuthService, private router: Router) {}
 
     canLoad(
@@ -18,12 +18,12 @@ export class AuthGuardLoad implements CanLoad {
         }
         return this.authService.isLoggedIn();
       }
- 
+
 }
 
 @Injectable()
 export class AuthGuardActivate implements CanActivate {
-    
+
   constructor(private authService: AuthService, private router: Router) {
   }
 
@@ -47,5 +47,5 @@ export class AuthGuardActivate implements CanActivate {
     }
     return true;
   }
- 
+
 }

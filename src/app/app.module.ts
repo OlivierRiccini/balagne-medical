@@ -41,8 +41,8 @@ import { AuthComponent } from './auth/auth.component';
     AdminDashboardModule
   ],
   providers: [
-    AuthService, 
-    AuthGuardLoad, 
+    AuthService,
+    AuthGuardLoad,
     AuthGuardActivate
   ],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of, Observable, BehaviorSubject } from 'rxjs';
 import { catchError, mapTo, tap, share } from 'rxjs/operators';
 // import { config } from './../../config';
-import * as jwt_decode from "jwt-decode";
+import * as jwt_decode from 'jwt-decode';
 // import { UserInterfaceService } from './user-interface.service';
 import { ICredentials, IForgotPassword } from '../models/auth';
 import { IUser, IPhone } from '../models/user';
@@ -23,7 +23,7 @@ export class AuthService {
   public currentUserChange$: Observable<IUser>;
 
   // constructor(private http: HttpClient, private router: Router, private userInterfaceService: UserInterfaceService) { }
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private http: HttpClient, private router: Router) {
     this.currentUserChange = new BehaviorSubject<IUser>(this.getCurrentUser());
     this.currentUserChange$ = this.currentUserChange.asObservable();
   }
@@ -35,7 +35,7 @@ export class AuthService {
           const jwt = response.body.jwt;
           const refreshToken = response.body['refresh-token'];
           this.doLoginUser({jwt, refreshToken});
-          alert('Successfully logged in!')
+          alert('Successfully logged in!');
           // this.userInterfaceService.success('Successfully logged in!');
           this.router.navigate(['./', 'myspace']);
         }),
@@ -104,21 +104,21 @@ export class AuthService {
   //       return of(false);
   //     }));
   // }
-  
+
   public tokenIsExpired(): boolean {
     const token: string = this.getJwtToken();
     if (!token) {
       return true;
-    } 
+    }
     const decodedToken: {} = jwt_decode(this.getJwtToken());
     const current_time = Date.now() / 1000;
     return decodedToken['exp'] < current_time;
   }
-  
+
   public updatePassword(userId: string, oldPassword: string, newPassword: string): Observable<any> {
     return this.http.patch<any>(`http://localhost:3000/users/${userId}/update-password`, {oldPassword, newPassword});
   }
-  
+
   public isLoggedIn(): boolean {
     return !!this.getJwtToken();
   }
@@ -126,14 +126,14 @@ export class AuthService {
   public refreshToken(): Observable<any>  {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'refresh-token': this.getRefreshToken() 
+      'refresh-token': this.getRefreshToken()
     });
     const options = { headers: headers, observe: 'response' as 'body' };
     const user: IUser = this.getCurrentUser();
-    return this.http.post<any>(`${config.apiUrl}/refresh`, user, options,).pipe(
+    return this.http.post<any>(`${config.apiUrl}/refresh`, user, options, ).pipe(
       tap((response: any) => {
         const jwt = response.body.jwt;
-        const refreshToken = response.body['refresh-token']; 
+        const refreshToken = response.body['refresh-token'];
         this.storeTokens({refreshToken, jwt});
     }));
   }
@@ -197,7 +197,7 @@ export class AuthService {
   }
 
   private removeCurrentUser() {
-    localStorage.removeItem(this.CURRENT_USER);  
+    localStorage.removeItem(this.CURRENT_USER);
   }
 
 }

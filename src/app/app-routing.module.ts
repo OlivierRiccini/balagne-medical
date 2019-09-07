@@ -18,9 +18,9 @@ const routes: Routes = [
     { path: 'contact',  component: ContactComponent },
     { path: 'mentions-legales',  component: TermsOfUseComponent },
     { path: 'admin-dashboard', canActivate: [AuthGuardActivate], loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
-      .then(m => m.AdminDashboardModule) 
+      .then(m => m.AdminDashboardModule)
     },
-    { path: "**", redirectTo: '/' }
+    { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
