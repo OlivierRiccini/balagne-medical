@@ -1,3 +1,18 @@
-<p>
-  individuals works!
-</p> 
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let chapter of content.chapters; first as isFirst" [expanded]="isFirst">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ chapter.title?.text | uppercase }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let section of chapter.sections">
+      <h4>{{ section?.title?.text }}</h4>
+      <div *ngFor="let paragraph of section.paragraphes">
+        <p>{{ paragraph?.text }}</p>
+      </div>
+      <div *ngIf="section.images && section.images.length > 0" class="images-box">
+        <img *ngFor="let image of section?.images" [src]="image.url" [alt]="image.url">
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

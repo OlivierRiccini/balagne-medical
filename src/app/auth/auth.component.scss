@@ -4,11 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // height: calc(100vh - #{$header-height} - #{$footer-height});
-    // div {
-    //     padding: 15px;
-    // };
-    // justify-content: center;
 }
 
 p {
@@ -16,35 +11,9 @@ p {
 }
 
 form {
-    width: 30%;
     border: 1px solid $brand-green;
     border-radius: 3px;
     padding: 25px;
     display: flex;
     flex-direction: column;
 }
-
-// .flex-wrapper  div:last-child {
-//     width: 70%;
-//     padding-top: 0;
-// }
-
-// ::ng-deep.mat-focused .mat-form-field-label {
-//     /*change color of label*/
-//     // caret-color: $brand-green !important;
-//     color: $brand-green !important;
-//     // caret-color: $brand-green !important;
-// }
-
-// // ::ng-deep.mat-form-field.mat-form-field-invalid .mat-form-field-label {
-// // }
-  
-// ::ng-deep.mat-form-field-underline {
-//     /*change color of underline*/
-//     background-color: $brand-green !important;
-// } 
-  
-// ::ng-deep.mat-form-field-ripple {
-//     /*change color of underline when focused*/
-//     background-color: $brand-green !important;
-// }

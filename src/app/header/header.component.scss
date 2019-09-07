@@ -35,4 +35,8 @@ nav {
 
 img {
     height: 50%;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
 }

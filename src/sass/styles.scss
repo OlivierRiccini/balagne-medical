@@ -3,13 +3,24 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body {  
+body, p {  
     margin: 0;
     font-family: $main-font;
     letter-spacing: 0.1em;
     font-weight: 300;
+    font-size: 1rem;
 }
 
-p {
-    margin: 0;
+h4 {
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+}
+
+mat-expansion-panel-header {
+    background-color: $brand-green-light !important;
+}
+
+mat-panel-title {
+    color: #fff !important;
 }
