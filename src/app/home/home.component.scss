@@ -5,8 +5,32 @@
     flex-direction: column;
 }
 
-.flex-col {
+.row {
+    display: flex;
+    padding: 2rem 0;
+}
+
+.column {
     width: 50%;
+}
+
+@media screen and (max-width: $deviseLimit) {
+    .row {
+        padding: 0;
+        padding-bottom: 1rem;
+    }
+    .column {
+      width: 100%;
+    }
+    .images-box {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    button {
+        width: 100%;
+    }
 }
 
 .first-flex-row {
@@ -35,14 +59,7 @@
     }
 }
 
-.first-flex-row,
 .second-flex-row {
-    display: flex;
-    padding: 2rem 0;
-}
-
-.second-flex-row {
-    display: flex;
     .content-section {
         background: $brand-green-light;
         padding: 1rem;

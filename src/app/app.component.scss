@@ -22,6 +22,8 @@ header {
     z-index: 1;
     box-shadow: 0 0 5px 2px rgba(200,200,200,.35);
     button {
+        height: 100%;
+        border-radius: 0;
         color: $brand-green;
     }
     button i {
