@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IContent } from '../models/content';
 import { INDIVIDUALS_CONTENT } from '../../assets/contents/individuals';
 
@@ -7,12 +7,6 @@ import { INDIVIDUALS_CONTENT } from '../../assets/contents/individuals';
   templateUrl: './individuals.component.html',
   styleUrls: ['./individuals.component.scss']
 })
-export class IndividualsComponent implements OnInit {
+export class IndividualsComponent {
   public content: IContent = INDIVIDUALS_CONTENT;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
