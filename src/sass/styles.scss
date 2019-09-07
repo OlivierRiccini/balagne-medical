@@ -7,8 +7,13 @@ body, p {
     margin: 0;
     font-family: $main-font;
     letter-spacing: 0.1em;
+    line-height: 1.5rem;
     font-weight: 300;
     font-size: 1rem;
+}
+
+h2 {
+    font-weight: 300;
 }
 
 h4 {
@@ -25,14 +30,25 @@ mat-panel-title {
     color: #fff !important;
 }
 
+.mat-expansion-panel-header-title {
+    font-weight: 200;
+}
+
 .mat-expansion-indicator::after {
     color: #fff;
 }
 
-// .mobile-wrapper .partners-img {
-//     max-width: 100%;
-// }
+button {
+    background: $brand-green-light !important;
+    color: #fff !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    &:hover {
+        background: $brand-green !important;
+    }
+}
 
-// .desktop-wrapper .partners-img {
-//     max-width: 70%;
-// }
+.mat-button-wrapper {
+    font-weight: 200 !important;
+    letter-spacing: 0.1em !important;
+}

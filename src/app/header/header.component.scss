@@ -1,7 +1,45 @@
 @import '../../sass/variables';
 
+.contact-row {
+    height: $contact-row-height;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: $brand-green;
+    font-size: .9rem;
+    img {
+        max-height: 80%;
+    }
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $brand-green;
+    }
+    a:hover {
+        font-weight: 400;
+    }
+    a i {
+        margin-right: .5rem;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+.brand-clickable {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+        &:focus {
+        outline: none;
+    }
+}
+
 nav {
     height: $header-height;
+    background-color: $brand-green-light;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -9,34 +47,13 @@ nav {
     a {
         text-decoration: none;
         color: $brand-green;
-        font-weight: 400;
-        padding: 10px 5px;
-        margin: 0 1.1rem;
-        position: relative;
-    
+        padding: 0 1.5rem;
+        color: #fff;
+        height: 100%;
+        display: flex;
+        align-items: center;
     };
-    a:after {    
-        background: none repeat scroll 0 0 transparent;
-        bottom: 0;
-        content: "";
-        display: block;
-        height: 2px;
-        left: 50%;
-        position: absolute;
-        background: $brand-green;
-        transition: width 0.3s ease 0s, left 0.3s ease 0s;
-        width: 0;
-    }
-    a:hover:after, .active-link:after  { 
-        width: 100%; 
-        left: 0; 
-    }
-}
-
-img {
-    height: 50%;
-    cursor: pointer;
-    &:focus {
-        outline: none;
-    }
+    a:hover, .active-link {
+        background-color: $brand-green;
+    }   
 }

@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { IUser } from './models/user';
 import { AuthService } from './services/auth.service';
-import { URLS } from '../assets/images/urls';
+import { URLS } from '../assets/images/urls-to-preload';
 
 @Component({
   selector: 'app-root',

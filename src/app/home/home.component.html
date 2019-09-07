@@ -1,10 +1,53 @@
-<div>
-  <p>
-    Balagne Medical Services est une entreprise qui a été fondée en 2005. Notre équipe est
-    spécialisé dans la location et la vente de matériel médical. Nous pouvons intervenir auprès
-    des particuliers, des professionnels de la santé, des collectivités, des hôpitaux, des Unités de
-    soins et des EPHAD. Nous pouvons ainsi contribuer au bien-être de nos clients en leurs
-    proposant un aménagement adapté du domicile pour les personnes âgées, les personnes à
-    mobilité réduite ou victime des accidents de la vie.
-  </p>
+<div class="flex-wrapper">
+  <div class="first-flex-row">
+    <div class="content-box flex-col">
+      <h2>BIENVENUE CHEZ BALAGNE MEDICAL</h2>
+      <div class="text-section">
+        <p>Balagne Medical Services est une entreprise qui a été fondée en 2005. Notre équipe est
+        spécialisé dans la location et la vente de matériel médical.</p>
+        <p>Nous pouvons intervenir auprès des particuliers, des professionnels de la santé, des collectivités,
+        des hôpitaux, des Unités de soins et des EPHAD.</p>
+        <p>Nous pouvons ainsi contribuer au bien-être de nos clients en leurs
+        proposant un aménagement adapté du domicile pour les personnes âgées, les personnes à
+        mobilité réduite ou victime des accidents de la vie.</p>
+        </div>
+      <mat-divider></mat-divider>
+      <div class="contact-section">
+        <p>DES QUESTIONS? N'HÉSITEZ PAS!</p>
+        <button type="button" mat-button routerLink="./contact">NOUS CONTACTER</button>
+      </div>
+    </div>
+    <div class="flex-col images-box">
+      <img src="./assets/images/store2.png" alt="store2.png">
+    </div>
+  </div>
+  <div class="second-flex-row">
+    <div class="flex-col images-box">
+      <img src="./assets/images/store1.jpeg" alt="store1.jpeg">
+    </div>
+    <div class="content-section flex-col">
+      <h2>NOS SERVICES</h2>
+      <mat-divider></mat-divider>
+      <ul>
+          <li>
+              <a routerLink="./services-particuliers" routerLinkActive="active-link">
+                <i class="material-icons">accessibility_new</i>
+                PARTICULIERS
+              </a>
+          </li>
+          <li>
+              <a routerLink="./services-professionnels" routerLinkActive="active-link">
+                <i class="material-icons">local_hospital</i>
+                PROFESSIONNELS
+              </a>
+          </li>
+          <li>
+              <a routerLink="./pharmacies" routerLinkActive="active-link">
+                <i class="material-icons">local_pharmacy</i>
+                PHARMACIES
+              </a>
+          </li>
+      </ul>
+    </div>
+  </div>
 </div>
