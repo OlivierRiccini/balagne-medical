@@ -17,7 +17,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             Comme la plupart des dispositifs médicaux, ceux ci, sont remboursés par la sécurité sociale.`
                         }
                     ],
-                    images: [{ url: '../../assets/images/wheelchair.png' }, { url: '../../assets/images/bed.png' }]
+                    images: [{ url: './assets/images/wheelchair.png' }, { url: './assets/images/bed.png' }]
                 }
             ]
         },

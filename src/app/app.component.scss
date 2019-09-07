@@ -1,7 +1,7 @@
 @import '../sass/variables';
 
 .mobile-wrapper {
-    margin: calc(#{$mobile-header-height} + 1.5rem) 0 1.5rem 0;
+    margin-top: calc(#{$mobile-header-height} + 1.5rem);
     padding: 0 1.5rem 1rem 1.5rem;
     min-height: calc(100vh - #{$mobile-header-height} - #{$footer-height} - 3rem);
 }
@@ -18,7 +18,7 @@ header {
     height: $mobile-header-height;
     position: fixed;
     width: 100%;
-    background: $light-grey-background;
+    background: #fff;
     z-index: 1;
     box-shadow: 0 0 5px 2px rgba(200,200,200,.35);
     button {
@@ -65,4 +65,5 @@ mat-sidenav ul {
 
 mat-sidenav-content {
     overflow: hidden;
+    background-color: #fff;
 }

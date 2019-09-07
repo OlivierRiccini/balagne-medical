@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
+import { PartnersComponent } from './partners/partners.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AuthComponent } from './auth/auth.component';
     TermsOfUseComponent,
     HeaderComponent,
     FooterComponent,
-    AuthComponent
+    AuthComponent,
+    PartnersComponent
   ],
   imports: [
     BrowserAnimationsModule,
