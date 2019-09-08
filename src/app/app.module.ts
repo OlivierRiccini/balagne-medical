@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { PartnersComponent } from './partners/partners.component';
     HeaderComponent,
     FooterComponent,
     AuthComponent,
-    PartnersComponent
+    PartnersComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserAnimationsModule,

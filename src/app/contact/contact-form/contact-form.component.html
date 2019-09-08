@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+        <input matInput placeholder="Votre nom" id="email" formControlName="email" required>
+        <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
+        <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput matTextareaAutosize matAutosizeMinRows=5 placeholder="Votre message" required></textarea>
+    </mat-form-field>
+    <button mat-button>Envoyer</button>
+</form>

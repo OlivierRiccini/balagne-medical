@@ -8,7 +8,15 @@
 
 .desktop-wrapper {
     padding: 2rem 3rem 2rem 3rem;
-    min-height: calc(100vh - #{$contact-row-height} - #{$header-height} - #{$footer-height});
+    margin-top: calc(#{$contact-row-height} + #{$header-height});
+    min-height: calc(100vh - #{$contact-row-height} - #{$header-height} - #{$footer-height} - 5rem);
+}
+
+app-header {
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    background: #fff;
 }
 
 header {

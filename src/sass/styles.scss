@@ -12,6 +12,13 @@ body, p {
     font-size: 1rem;
 }
 
+
+nav {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
 h2 {
     font-weight: 300;
 }

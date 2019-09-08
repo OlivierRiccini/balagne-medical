@@ -7,7 +7,7 @@
   <a href="tel:+33626770707"><i class="material-icons">phone_iphone</i> 06.26.77.07.07</a>
   <a href="mailto: contact@balagnemedical.com"><i class="material-icons">email</i> contact@balagnemedical.com</a>
 </div>
-<nav>
+<nav [ngClass]="{ 'sticky': shoudlBeSticky }">
   <a routerLink="./" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"><i class="material-icons">home</i></a>
   <a routerLink="./services-particuliers" routerLinkActive="active-link">PARTICULIERS</a>
   <a routerLink="./services-professionnels" routerLinkActive="active-link">PROFESSIONNELS</a>

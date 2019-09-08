@@ -38,6 +38,8 @@
 }
 
 nav {
+    // position: initial;
+    // top: 72px;
     height: $header-height;
     background-color: $brand-green-light;
     margin: 0 auto;
@@ -57,3 +59,10 @@ nav {
         background-color: $brand-green;
     }   
 }
+
+// .sticky {
+//     position: fixed;
+//     width: 100vw;
+//     top: 0;
+//     z-index: 1;
+// }
