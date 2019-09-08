@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="over">
+    <mat-sidenav #sidenav mode="over" fixedInViewport="fixed" fixedBottomGap="0">
         <ul>
             <li>
                 <a routerLink="./" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="sidenav.toggle()">Accueil</a>
