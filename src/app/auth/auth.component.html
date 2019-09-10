@@ -12,7 +12,10 @@
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-button>S'identifer</button>
-        <button type="button" mat-button routerLink="../contact">Pas d'identifiants? Nous contacter</button>
+        <div id="buttons-box">
+            <button mat-button>S'identifer</button>
+            <p>Pas d'identifiants? </p>
+            <button type="button" mat-button routerLink="../contact">Nous contacter</button>
+        </div>
     </form>
 </div>

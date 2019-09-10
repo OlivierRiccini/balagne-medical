@@ -9,6 +9,7 @@ import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { AuthGuardActivate } from './services/auth-guard.service';
 import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
+import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
     { path: 'nos-partenaires', component: PartnersComponent },
     { path: 'contact',  component: ContactComponent },
     { path: 'mentions-legales',  component: TermsOfUseComponent },
-    { path: 'admin-dashboard', canActivate: [AuthGuardActivate], loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
+    { path: 'admin-dashboard', canActivate: [], loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
       .then(m => m.AdminDashboardModule)
     },
     { path: '**', redirectTo: '/' }

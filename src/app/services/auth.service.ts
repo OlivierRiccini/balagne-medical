@@ -123,6 +123,11 @@ export class AuthService {
     return !!this.getJwtToken();
   }
 
+  public isAdmin(): boolean {
+    const user: IUser = this.getCurrentUser();
+    return user && user.isAdmin;
+  }
+
   public refreshToken(): Observable<any>  {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -130,7 +135,7 @@ export class AuthService {
     });
     const options = { headers: headers, observe: 'response' as 'body' };
     const user: IUser = this.getCurrentUser();
-    return this.http.post<any>(`${config.apiUrl}/refresh`, user, options, ).pipe(
+    return this.http.post<any>(`${config.apiUrl}/refresh`, user, options).pipe(
       tap((response: any) => {
         const jwt = response.body.jwt;
         const refreshToken = response.body['refresh-token'];

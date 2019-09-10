@@ -1,6 +1,6 @@
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
-import { Router, CanLoad, CanActivate, UrlSegment, Route, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanLoad, CanActivate, UrlSegment, Route } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -27,11 +27,9 @@ export class AuthGuardActivate implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    const targetPath: string = route.routeConfig.path;
-    console.log(targetPath);
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.authService.isLoggedIn()) {
-      this.router.navigate([targetPath, 'auth']);
+      this.router.navigate(['pharmacies', 'auth']);
       return false;
     }
     if (this.authService.tokenIsExpired()) {

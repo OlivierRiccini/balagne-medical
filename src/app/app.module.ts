@@ -19,6 +19,7 @@ import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
   providers: [
     AuthService,
     AuthGuardLoad,
-    AuthGuardActivate
+    AuthGuardActivate,
+    AuthAdminGuardActivate
   ],
   bootstrap: [AppComponent]
 })

@@ -10,4 +10,5 @@ export interface IUser {
     username: string;
     email?: string;
     phone?: IPhone;
+    isAdmin?: boolean;
 }
