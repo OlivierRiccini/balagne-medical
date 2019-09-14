@@ -4,10 +4,9 @@ import { CustomMaterialModule } from '../custom-material.module';
 import { FormsModule, ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CatalogPreviewComponent } from './catalog-preview/catalog-preview.component';
-import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
-  declarations: [CatalogPreviewComponent, NotificationComponent],
+  declarations: [CatalogPreviewComponent],
   imports: [
     CommonModule,
     PdfViewerModule,

@@ -4,7 +4,6 @@ import { AuthService } from './services/auth.service';
 import { URLS } from '../assets/images/urls-to-preload';
 import { Router, NavigationEnd } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { NotificationComponent } from './shared/notification/notification.component';
 import { INotification } from './models/notification';
 import { UserInterfaceService } from './services/user-interface.service';
 import { Subscription } from 'rxjs';
