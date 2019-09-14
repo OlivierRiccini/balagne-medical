@@ -1,0 +1,22 @@
+.flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    flex-grow: 1;
+}
+.catalog-container {
+    height: 470px;
+    width: 300px;
+}
+
+mat-card {
+    min-width: 100%;
+    min-height: 100%;
+    &:hover {
+        filter: contrast(0.8);
+        transition: .5s;
+    }
+}

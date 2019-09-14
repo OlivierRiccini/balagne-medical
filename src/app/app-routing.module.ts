@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: ':target/auth', component: AuthComponent },
     { path: 'services-particuliers', component: IndividualsComponent },
     { path: 'services-professionnels', component: ProfessionalsComponent },
-    { path: 'pharmacies', component: PharmacistsComponent, canActivate: [AuthGuardActivate] },
+    { path: 'pharmacies', component: PharmacistsComponent, canActivate: [] },
     { path: 'nos-partenaires', component: PartnersComponent },
     { path: 'contact',  component: ContactComponent },
     { path: 'mentions-legales',  component: TermsOfUseComponent },

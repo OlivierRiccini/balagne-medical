@@ -99,11 +99,34 @@
     </table>
 </div> -->
         
+<!-- <mat-card>
+    <mat-card-title>Changer le Catalogue</mat-card-title>
+    <div class="flex-wrapper">
+        <form [formGroup]="form" (ngSubmit)="onUpload()" (keydown.enter)="$event.preventDefault()">
+            <input formControlName="file" type="file" #file placeholder="Upload file" accept=".pdf,.doc,.docx">
+            <button type="submit">Upload</button>
+        </form>
+        <div class="catalog-preview-container">
+            <app-catalog-preview></app-catalog-preview>
+        </div>
+    </div>
+</mat-card> -->
 
-<form [formGroup]="form" (ngSubmit)="onUpload()" (keydown.enter)="$event.preventDefault()">
-    <input formControlName="file" type="file" #file placeholder="Upload file" accept=".pdf,.doc,.docx">
-    <button type="submit">Upload</button>
-</form>
-
-
-<button type="button" (click)="onDownload()">Download</button>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let chapter of [1]; first as isFirst" [expanded]="isFirst">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+            CATALOGUE
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="flex-wrapper">
+            <form class="catalog-form" [formGroup]="form" (ngSubmit)="onUpload()" (keydown.enter)="$event.preventDefault()">
+                <input formControlName="file" type="file" #file placeholder="Upload file" accept=".pdf,.doc,.docx">
+                <button mat-button type="submit">Upload</button>
+            </form>
+            <div class="catalog-preview-container">
+                <app-catalog-preview></app-catalog-preview>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,58 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
-import { FilesService } from '../services/files.service';
+import { Component, ViewChild, OnDestroy } from '@angular/core';
+import { CatalogService } from '../services/catalog.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent implements OnInit {
-  // private files = [];
-  private url = 'http://localhost:3000/catalog';
-  private uploader: FileUploader;
-  public form: FormGroup;
+export class AdminDashboardComponent implements OnDestroy {
   @ViewChild('file', {static: false}) public file;
+  public form: FormGroup;
   public files: Set<File> = new Set();
+  private subscription = new Subscription();
 
-  constructor(private fileService: FilesService, private fb: FormBuilder) { 
+  constructor(private catalogService: CatalogService, private fb: FormBuilder) {
     this.form = this.fb.group({
       file: ['', []]
     });
   }
 
-  ngOnInit() {
-    this.uploader = new FileUploader({url: this.url});
-
-    this.fileService.showFileNames().subscribe(response => {
-      console.log(response);
-      // for (let i = 0; i < response.d.length; i++) {
-      //   this.files[i] = {
-      //     filename: response.d[i].filename,
-      //     originalname: response.d[i].originalname,
-      //     contentType: response.d[i].contentType
-      //   };
-      // }
-    });
-  }
-
-  onUpload() {
-    console.log(this.file.nativeElement.files[0]);
-    this.fileService.uploadPDF(this.file.nativeElement.files[0]).subscribe(
-      response => console.log(response),
+  public onUpload(): void {
+    const subscription = this.catalogService.uploadPDF(this.file.nativeElement.files[0]).subscribe(
+      () => this.catalogService.emitCatalogChangedEvent(),
       err => console.log(err)
     );
+    this.subscription.add(subscription);
   }
-  // onDownload
-  onDownload(filename, contentType) {
-    this.fileService.downloadPDF().subscribe(
-      (res) => {
-        const file = new Blob([res.blob()], { type: contentType });
-      const fileURL = URL.createObjectURL(file);
-      window.open(fileURL);
-      }
-    );
+
+  public ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

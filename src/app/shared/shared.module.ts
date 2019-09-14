@@ -2,16 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomMaterialModule } from '../custom-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { CatalogPreviewComponent } from './catalog-preview/catalog-preview.component';
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @NgModule({
-  declarations: [],
+  declarations: [CatalogPreviewComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    PdfViewerModule,
+    CustomMaterialModule
   ],
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    PdfViewerModule,
+    CatalogPreviewComponent
   ]
 })
+
+
 export class SharedModule { }
+
+// platformBrowserDynamic().bootstrapModule(SharedModule);

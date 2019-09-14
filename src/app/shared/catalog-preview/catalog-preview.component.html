@@ -1,0 +1,10 @@
+<div class="preview-wrapper" (click)="onOpenPDF()">
+    <pdf-viewer 
+        [src]="pdfSrc" 
+        [render-text]="true"
+        [show-all]="false"
+        [original-size]="false"
+        [page]="1"
+        style="display: block;"
+    ></pdf-viewer>
+</div>
