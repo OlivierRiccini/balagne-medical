@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of, Observable, BehaviorSubject } from 'rxjs';
-import { catchError, mapTo, tap, share } from 'rxjs/operators';
-// import { config } from './../../config';
+import { catchError, mapTo, tap } from 'rxjs/operators';
 import * as jwt_decode from 'jwt-decode';
-// import { UserInterfaceService } from './user-interface.service';
 import { ICredentials, IForgotPassword } from '../models/auth';
 import { IUser, IPhone } from '../models/user';
 import { Router } from '@angular/router';
@@ -21,8 +19,6 @@ export class AuthService {
   private readonly CURRENT_USER = 'CURRENT_USER';
   private currentUserChange: BehaviorSubject<IUser>;
   public currentUserChange$: Observable<IUser>;
-
-  // constructor(private http: HttpClient, private router: Router, private userInterfaceService: UserInterfaceService) { }
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserChange = new BehaviorSubject<IUser>(this.getCurrentUser());
     this.currentUserChange$ = this.currentUserChange.asObservable();
@@ -36,74 +32,31 @@ export class AuthService {
           const refreshToken = response.body['refresh-token'];
           this.doLoginUser({jwt, refreshToken});
           alert('Successfully logged in!');
-          // this.userInterfaceService.success('Successfully logged in!');
-          this.router.navigate(['./', 'myspace']);
+          this.router.navigate(['./', 'pharmacies']);
         }),
         mapTo(true),
         catchError(error => {
           this.router.navigate(['/']);
           alert(error.error.message);
-          // this.userInterfaceService.error(error.error.message);
           return of(false);
         }));
   }
 
-  public login(credentials: ICredentials): Observable<boolean> {
+  public login(credentials: ICredentials, redirectionUrl: string): Observable<boolean> {
     return this.http.post<any>(`${config.apiUrl}/login`, credentials, { observe: 'response' as 'body' })
       .pipe(
         tap(response => {
           const jwt = response.body.jwt;
           const refreshToken = response.body['refresh-token'];
           this.doLoginUser({jwt, refreshToken});
-          // alert('Successfully logged in!');
-          // this.userInterfaceService.success('Successfully logged in!');
-          this.router.navigate(['./', 'pharmacies']);
+          this.router.navigate(['./', redirectionUrl]);
         }),
         mapTo(true),
         catchError(error => {
-          // this.router.navigate(['/']);
           alert(error.error.message);
-          // this.userInterfaceService.error(error.error.message);
           return of(false);
         }));
   }
-
-  // public logout(): Observable<boolean> {
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'refreshToken': this.getRefreshToken()
-  //   });
-  //   const options = { headers: headers };
-  //   return this.http.post<any>(`${config.apiUrl}/logout`, null, options).pipe(
-  //     tap(() => {
-  //       this.doLogoutUser();
-  //       alert('Successfully logged out, see you!');
-  //       // this.userInterfaceService.success('Successfully logged out, see you!');
-  //     }),
-  //     mapTo(true),
-  //     catchError(error => {
-  //       alert(error.error.message);
-  //       // this.userInterfaceService.error(error.error.message);
-  //       return of(false);
-  //     }));
-  // }
-
-  // public updateProfile(user: IUser, userId: string): Observable<boolean> {
-  //   return this.http.put<any>(`http://localhost:3000/users/${userId}/update`, user).pipe(
-  //     tap(response => {
-  //       const updatedUser: IUser = response;
-  //       this.storeCurrentUser(updatedUser);
-  //       // this.userLoggedEvent.emit(updatedUser);
-  //       alert('Profile updated successfully!');
-  //       // this.userInterfaceService.success('Profile updated successfully!');
-  //     }),
-  //     mapTo(true),
-  //     catchError(error => {
-  //       alert(error.error.message);
-  //       // this.userInterfaceService.error(error.error.message);
-  //       return of(false);
-  //     }));
-  // }
 
   public tokenIsExpired(): boolean {
     const token: string = this.getJwtToken();
@@ -176,11 +129,11 @@ export class AuthService {
     this.currentUserChange.next(user);
   }
 
-  public doLogoutUser() {
+  public doLogoutUser(redirectionUrl: string) {
     this.removeCurrentUser();
     this.removeTokens();
     this.currentUserChange.next(null);
-    this.router.navigate(['/', 'auth']);
+    this.router.navigate(['/', redirectionUrl, 'auth']);
   }
 
   public getRefreshToken() {

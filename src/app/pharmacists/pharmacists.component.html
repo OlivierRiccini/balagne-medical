@@ -1,10 +1,20 @@
-<div class="flex-wrapper">
-  <div class="text-container">
-    <p>Bienvenue dans notre espace reservé aux pharmaciens</p>
+<div class="flex-wrapper row">
+  <div class="text-col col">
+    <div>
+      <h2>BIENVENUE CHEZ BALAGNE MEDICAL SERVICE  <strong>{{ currentUser.username | uppercase }}</strong></h2>
+      <p>Ceci est votre espace reservé. Ici vous pourrez nous envoyer
+        vos demandes directement et consulter notre catalogue reservé aux pharmaciens</p>
+    </div>
+    <app-user-form></app-user-form>
+    <!-- <app-contact-form></app-contact-form> -->
   </div>
-  <div class="catalog-container">
+  <div class="catalog-col col">
     <mat-card>
       <app-catalog-preview></app-catalog-preview>
     </mat-card>
   </div>
+</div>
+<div class="contact-container">
+  <p>DES QUESTIONS? N'HÉSITEZ PAS A NOUS ENVOYER UN MESSAGE</p>
+  <app-contact-form></app-contact-form>
 </div>

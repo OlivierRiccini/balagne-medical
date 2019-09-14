@@ -30,7 +30,7 @@ export class AuthComponent implements OnDestroy {
   }
 
   public onSubmit(): void {
-    this.authService.login(this.form.value).subscribe(
+    this.authService.login(this.form.value, this.targetPath).subscribe(
       resp => console.log(resp)
     );
   }

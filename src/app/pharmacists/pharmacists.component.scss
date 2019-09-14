@@ -1,22 +1,72 @@
-.flex-wrapper {
+@import '../../sass/variables';
+
+.text-col {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    h2 {
+        color: $brand-green-light !important;
+    }
 }
 
-.text-container {
-    flex-grow: 1;
+app-user-form {
+    border: 1px solid $brand-green-light;
+    padding: 1rem;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
-.catalog-container {
-    height: 470px;
-    width: 300px;
+
+.catalog-col {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 mat-card {
-    min-width: 100%;
-    min-height: 100%;
     &:hover {
         filter: contrast(0.8);
         transition: .5s;
+    }
+}
+
+.row {
+    display:flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.col {
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    &:first-child {
+        width: 68%;
+        height: inherit;
+        justify-content: space-between;
+    }
+    &:last-child {
+        width: 28%;
+    }
+}
+
+.contact-container {
+    border: 1px solid $brand-green-light;
+    padding: 1rem;
+    border-radius: 3px;
+    margin-top: 2rem;
+    p {
+        margin-bottom: 1rem; 
+    }
+}
+
+@media screen and (max-width: 1095px) {
+    .col {
+        &:first-child, &:last-child {
+            width: 100%;
+        }
+      margin-bottom: 1rem;
     }
 }

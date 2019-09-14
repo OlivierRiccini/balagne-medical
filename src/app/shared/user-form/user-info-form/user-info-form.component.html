@@ -1,3 +1,7 @@
+<div class="form-header">
+    <p>MES INFORMATIONS</p>
+    <i class="material-icons edit-icon" (click)="onToggleEditMode()">edit</i>
+</div>
 <div class="main-container">
     <div *ngIf="isSending" class="spinner-wrapper">
         <mat-spinner></mat-spinner>
@@ -8,16 +12,13 @@
         #formDirective="ngForm"
         (keydown.enter)="$event.preventDefault()">
         <mat-form-field *ngIf="!isLoggedIn">
-            <input matInput placeholder="Saisissez votre nom" id="name" formControlName="name" required>
-            <mat-error *ngIf="form.get('name').invalid">Vous devez saisir votre nom</mat-error>
+            <input matInput placeholder="Saisissez votre nom" id="name" formControlName="username" required>
+            <mat-error *ngIf="form.get('username').invalid">Vous devez saisir votre nom</mat-error>
         </mat-form-field>
         <mat-form-field *ngIf="!isLoggedIn">
             <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
             <mat-error *ngIf="form.get('email').invalid">Email invalide</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <textarea formControlName="message" matInput matTextareaAutosize matAutosizeMinRows=5 placeholder="Votre message" required></textarea>
-        </mat-form-field>
-        <button mat-button>Envoyer</button>
+        <button [disabled]="!isEditMode" mat-button>Enregistrer</button>
     </form>
 </div>

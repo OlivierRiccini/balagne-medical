@@ -16,11 +16,11 @@ const routes: Routes = [
     { path: ':target/auth', component: AuthComponent },
     { path: 'services-particuliers', component: IndividualsComponent },
     { path: 'services-professionnels', component: ProfessionalsComponent },
-    { path: 'pharmacies', component: PharmacistsComponent, canActivate: [] },
+    { path: 'pharmacies', component: PharmacistsComponent, canActivate: [AuthGuardActivate] },
     { path: 'nos-partenaires', component: PartnersComponent },
     { path: 'contact',  component: ContactComponent },
     { path: 'mentions-legales',  component: TermsOfUseComponent },
-    { path: 'admin-dashboard', canActivate: [], loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
+    { path: 'admin-dashboard', canActivate: [AuthAdminGuardActivate], loadChildren: () => import('./admin-dashboard/admin-dashboard.module')
       .then(m => m.AdminDashboardModule)
     },
     { path: '**', redirectTo: '/' }

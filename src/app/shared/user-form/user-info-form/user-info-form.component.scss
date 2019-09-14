@@ -1,0 +1,14 @@
+@import 'src/sass/variables';
+
+.main-container {
+    height: 100%;
+}
+
+form {
+    justify-content: space-between;
+}
+
+.edit-icon {
+    background-color: $dark-grey;
+    color: #fff;
+}

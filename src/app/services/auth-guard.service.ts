@@ -38,7 +38,7 @@ export class AuthGuardActivate implements CanActivate {
           return true;
         },
         (err) => {
-          this.authService.doLogoutUser();
+          this.authService.doLogoutUser('pharmacies');
           return false;
         }
       );

@@ -1,9 +1,11 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { MailService } from 'src/app/services/mail.service';
 import { IEmail } from 'src/app/models/mail';
 import { Subscription } from 'rxjs';
 import { UserInterfaceService } from 'src/app/services/user-interface.service';
+import { IUser } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,21 +13,20 @@ import { UserInterfaceService } from 'src/app/services/user-interface.service';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnDestroy {
+  public isLoggedIn = false;
   public form: FormGroup;
   public isSending = false;
   private subscription = new Subscription();
+  private currentUser: IUser;
 
   constructor(
     private mailService: MailService,
     private fb: FormBuilder,
     private userInterfaceService: UserInterfaceService,
+    private authService: AuthService,
     protected formDirective: FormGroupDirective
     ) {
-    this.form = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required]]
-    });
+      this.createForm();
   }
 
   public ngOnDestroy() {
@@ -66,5 +67,26 @@ export class ContactFormComponent implements OnDestroy {
     this.subscription.add(subscription);
   }
 
+  private createForm(): void {
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', [Validators.required]]
+    });
+    this.setCurrentUser();
+  }
+
+  private setCurrentUser(): void {
+    this.currentUser = this.authService.getCurrentUser();
+    this.isLoggedIn = !!this.currentUser;
+    if (this.isLoggedIn) {
+      this.formValues();
+    }
+  }
+
+  private formValues(): void {
+    this.form.get('name').setValue(this.currentUser.username);
+    this.form.get('email').setValue(this.currentUser.email);
+  }
 
 }

@@ -20,7 +20,7 @@ export class AuthAdminGuardActivate implements CanActivate {
           return true;
         },
         (err) => {
-          this.authService.doLogoutUser();
+          this.authService.doLogoutUser('admin-dashboard');
           return false;
         }
       );
