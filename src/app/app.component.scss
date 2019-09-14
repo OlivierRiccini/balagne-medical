@@ -1,13 +1,13 @@
 @import '../sass/variables';
 
 .mobile-wrapper {
-    margin-top: calc(#{$mobile-header-height} + 1.5rem);
-    padding: 0 1.5rem 1rem 1.5rem;
+    margin-top: calc(#{$mobile-header-height} + 2rem);
+    padding: $mobile-wrapper-padding;
     min-height: calc(100vh - #{$mobile-header-height} - #{$footer-height} - 3rem);
 }
 
 .desktop-wrapper {
-    padding: 2rem 3rem 2rem 3rem;
+    padding: $desktop-wrapper-padding;
     margin-top: calc(#{$contact-row-height} + #{$header-height});
     min-height: calc(100vh - #{$contact-row-height} - #{$header-height} - #{$footer-height} - 4rem);
 }

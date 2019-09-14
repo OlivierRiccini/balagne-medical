@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomMaterialModule } from '../custom-material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CatalogPreviewComponent } from './catalog-preview/catalog-preview.component';
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
-  declarations: [CatalogPreviewComponent],
+  declarations: [CatalogPreviewComponent, NotificationComponent],
   imports: [
     CommonModule,
     PdfViewerModule,
@@ -19,7 +19,8 @@ import { CatalogPreviewComponent } from './catalog-preview/catalog-preview.compo
     CustomMaterialModule,
     PdfViewerModule,
     CatalogPreviewComponent
-  ]
+  ],
+  providers: [FormGroupDirective]
 })
 
 

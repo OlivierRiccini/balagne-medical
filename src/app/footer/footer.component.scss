@@ -14,15 +14,16 @@ footer {
         margin-bottom: .5rem;
     }
     div {
-        padding: 1rem;
+        // padding: 1rem;
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
+        flex-grow: 1;
     }
     span {
         color: #fff;
         font-size: 0.8rem;
-        padding-bottom: .5rem;
     }
 }
 

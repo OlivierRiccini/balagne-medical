@@ -15,7 +15,7 @@ export class CatalogService {
     this.catalogChanged$ = this.catalogChanged.asObservable();
   }
 
-  uploadPDF(file): Observable<any> {
+  public uploadPDF(file): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
     const headers = new HttpHeaders({

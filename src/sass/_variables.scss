@@ -11,7 +11,21 @@ $main-font: 'Raleway', sans-serif;
 // SIZES
 $contact-row-height: 4.5rem;
 $header-height: 3rem;
-$footer-height: 100px;
+$footer-height: 6rem;
 $mobile-header-height: 55px;
+
+// desktop-wrapper padding
+$desktop-wrapper-padding-top: 2rem;
+$desktop-wrapper-padding-right: 3rem;
+$desktop-wrapper-padding-bottom: 2rem;
+$desktop-wrapper-padding-left: 3rem;
+$desktop-wrapper-padding: $desktop-wrapper-padding-top $desktop-wrapper-padding-right $desktop-wrapper-padding-bottom $desktop-wrapper-padding-left;
+
+// mobile-wrapper padding
+$mobile-wrapper-padding-top: 0;
+$mobile-wrapper-padding-right: 1.5rem ;
+$mobile-wrapper-padding-bottom: 1rem;
+$mobile-wrapper-padding-left: 1.5rem;
+$mobile-wrapper-padding: $mobile-wrapper-padding-top $mobile-wrapper-padding-right $mobile-wrapper-padding-bottom $mobile-wrapper-padding-left;
 
 $deviseLimit: 1095px;
