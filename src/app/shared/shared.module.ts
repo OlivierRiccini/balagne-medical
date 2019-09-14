@@ -4,11 +4,17 @@ import { CustomMaterialModule } from '../custom-material.module';
 import { FormsModule, ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { CatalogPreviewComponent } from './catalog-preview/catalog-preview.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
-  declarations: [CatalogPreviewComponent],
+  declarations: [
+    CatalogPreviewComponent,
+    ContactFormComponent
+  ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     PdfViewerModule,
     CustomMaterialModule
   ],
@@ -17,12 +23,10 @@ import { CatalogPreviewComponent } from './catalog-preview/catalog-preview.compo
     ReactiveFormsModule,
     CustomMaterialModule,
     PdfViewerModule,
-    CatalogPreviewComponent
+    CatalogPreviewComponent,
+    ContactFormComponent
   ],
   providers: [FormGroupDirective]
 })
 
-
 export class SharedModule { }
-
-// platformBrowserDynamic().bootstrapModule(SharedModule);

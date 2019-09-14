@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   public currentUser: IUser;
   private deviseLimitInPx = 1095;
   private subscription = new Subscription();
-  // private durationInSeconds = 5;
 
   constructor(
     private authService: AuthService,

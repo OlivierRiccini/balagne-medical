@@ -13,14 +13,12 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthGuardActivate, AuthGuardLoad } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
-import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
-
 
 @NgModule({
   declarations: [
@@ -34,8 +32,7 @@ import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
     HeaderComponent,
     FooterComponent,
     AuthComponent,
-    PartnersComponent,
-    ContactFormComponent
+    PartnersComponent
   ],
   imports: [
     BrowserAnimationsModule,
