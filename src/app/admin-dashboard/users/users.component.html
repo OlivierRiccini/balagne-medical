@@ -1,0 +1,64 @@
+<div class="main-container">
+  <div *ngIf="isSending" class="spinner-wrapper">
+      <mat-spinner></mat-spinner>
+  </div>
+  <table mat-table #MatTable [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="organization">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Organisation </th>
+        <td mat-cell *matCellDef="let element"> {{element.organizationName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom du contact </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone </th>
+        <td mat-cell *matCellDef="let element"> {{element.simplePhone}} </td>
+      </ng-container>
+  
+       <ng-container matColumnDef="isAdmin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Admin </th>
+        <td mat-cell *matCellDef="let element"> {{element.isAdmin ? 'oui' : 'non' }} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="form-container">
+    <form
+        [formGroup]="form"
+        (ngSubmit)="onSubmit(form, formDirective)"
+        #formDirective="ngForm"
+        (keydown.enter)="$event.preventDefault()">
+      <div>
+        <mat-form-field>
+            <input matInput placeholder="Organization" id="organizationName" formControlName="organizationName" required>
+            <mat-error *ngIf="form.get('organizationName').invalid">Organization invalide</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Nom" id="username" formControlName="username" required>
+          <mat-error *ngIf="form.get('username').invalid">Nom invalide</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" id="email" formControlName="email" required>
+            <mat-error *ngIf="form.get('email').invalid">Email invalide</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Phone" id="simplePhone" formControlName="simplePhone">
+        </mat-form-field>
+        <mat-checkbox matInput id="isAdmin" formControlName="isAdmin"></mat-checkbox>
+      </div>
+      <div>
+        <button type="submit" mat-button>Ajouter utilisateur</button>
+        <button type="button" mat-button class="cancel-btn">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>

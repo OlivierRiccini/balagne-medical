@@ -48,8 +48,8 @@ export class AuthComponent implements OnDestroy {
     }
     this.isSending = true;
     const subscription = this.authService.login(this.form.value, this.targetPath).subscribe(
-      resp => this.userInterfaceService.success('Connecté avec succès'),
-      () => this.userInterfaceService.error(`Connexion impossible. Vérifiez vos identifiants ou contactez nous`),
+      ok => console.log('Success? ' + ok),
+      err => console.log(err),
       () => this.isSending = false
     );
     this.subscription.add(subscription);
@@ -63,7 +63,7 @@ export class AuthComponent implements OnDestroy {
     const subscription = this.authService.forgotPassword({type: 'email', email: this.forgotPassForm.value.email})
       .subscribe(
         res => {
-          this.userInterfaceService.success('Un nouveau mot de pass vient de vous être envoyer par email');
+          this.userInterfaceService.success('Un nouveau mot de passe vient de vous être envoyer par email');
           this.forgotPassword = false;
         },
         err => this.userInterfaceService.error(`Echec. Vérifiez vos identifiants ou contactez nous`),
@@ -75,7 +75,7 @@ export class AuthComponent implements OnDestroy {
   private createForm(): void {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required]]
     });
   }
 

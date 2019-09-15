@@ -1,6 +1,4 @@
-// .flex-wrapper {
-//     display: flex;
-// }
+@import 'src/sass/variables';
 
 mat-card {
     width: fit-content;
@@ -19,4 +17,14 @@ mat-card {
 .catalog-preview-container {
     max-width: 200px;
     margin: 0 auto;
+}
+
+app-user-form {
+    border: 1px solid $brand-green-light;
+    padding: 1rem;
+    border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1rem;
 }

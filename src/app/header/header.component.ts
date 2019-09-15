@@ -1,30 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { UserInterfaceService } from '../services/user-interface.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  // @ViewChild('navbar', {static: false}) private navBarEl: ElementRef;
-  // @ViewChild('contactHeader', {static: false}) private contactHeaderEl: ElementRef;
-  // private navBasePosition: number;
-  // public shoudlBeSticky = false;
+export class HeaderComponent implements OnDestroy {
+  public isLoggedIn: boolean;
+  private subscription = new Subscription();
 
-  // constructor() { }
+  constructor(private authService: AuthService, private userInterfaceService: UserInterfaceService) {
+    this.listenCurrentUser();
+  }
 
-  // ngAfterViewInit() {
-  //   this.navBasePosition = this.navBarEl.nativeElement.offsetTop;
-  // }
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
-  // @HostListener('window:scroll', ['$event'])
-  //   public doSomething(): void {
-  //     if (window.pageYOffset > this.navBasePosition) {
-  //       this.shoudlBeSticky = true;
-  //     }
-  //     if (window.pageYOffset < this.navBasePosition) {
-  //       this.shoudlBeSticky = false;
-  //     }
-  //   }
+  public onLogout(): void {
+    this.authService.doLogoutUser('pharmacies');
+    this.userInterfaceService.success('Déconnecté!');
+  }
+
+  private listenCurrentUser(): void {
+    const subscription = this.authService.currentUserChange$.subscribe(
+      user => {
+        this.isLoggedIn = !!user && this.authService.isLoggedIn();
+      }
+    );
+    this.subscription.add(subscription);
+  }
 
 }

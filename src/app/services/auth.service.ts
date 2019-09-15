@@ -6,6 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 import { ICredentials, IForgotPassword } from '../models/auth';
 import { IUser, IPhone } from '../models/user';
 import { Router } from '@angular/router';
+import { UserInterfaceService } from './user-interface.service';
 
 const config = { apiUrl: 'http://localhost:3000/auth' };
 
@@ -19,7 +20,7 @@ export class AuthService {
   private readonly CURRENT_USER = 'CURRENT_USER';
   private currentUserChange: BehaviorSubject<IUser>;
   public currentUserChange$: Observable<IUser>;
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private userInterfaceService: UserInterfaceService) {
     this.currentUserChange = new BehaviorSubject<IUser>(this.getCurrentUser());
     this.currentUserChange$ = this.currentUserChange.asObservable();
   }
@@ -49,11 +50,18 @@ export class AuthService {
           const jwt = response.body.jwt;
           const refreshToken = response.body['refresh-token'];
           this.doLoginUser({jwt, refreshToken});
+          this.userInterfaceService.success('Connecté avec succès');
           this.router.navigate(['./', redirectionUrl]);
         }),
         mapTo(true),
         catchError(error => {
-          alert(error.error.message);
+          let message: string; 
+          if (error.error.message === 'Wrong password') {
+            message = `L'email et le mot de passe ne correspondent pas`;
+          } else {
+            message = error.error.message;
+          }
+          this.userInterfaceService.error(message);
           return of(false);
         }));
   }

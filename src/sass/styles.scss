@@ -55,7 +55,44 @@ button {
     }
 }
 
+.cancel-btn {
+    background: $blue !important;
+    opacity: .8 !important;
+    &:hover {
+        opacity: 1 !important;
+        background: $blue !important;
+    }
+}
+
+.mat-sort-header-button {
+    background: #fff !important;
+    color: #000 !important;
+    &:hover {
+        background: #fff !important;
+        color: #000 !important;
+    }
+}
+
 .mat-button-wrapper {
     font-weight: 200 !important;
     letter-spacing: 0.1em !important;
+}
+
+.mat-expansion-panel-body {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.success, .error {
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.success {
+    background-color: $notifications-green;
+}
+
+.error {
+    background-color: $notifications-red;
 }

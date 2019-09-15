@@ -14,4 +14,13 @@
   <a routerLink="./pharmacies" routerLinkActive="active-link">PHARMACIES</a>
   <a routerLink="./nos-partenaires" routerLinkActive="active-link">NOS PARTENAIRES</a>
   <a routerLink="./contact" routerLinkActive="active-link">NOUS CONTACTER</a>
+  <div class="profile-menu-container" *ngIf="isLoggedIn">
+    <button class="profile-btn" [matMenuTriggerFor]="menu">
+      <i class="material-icons">account_circle</i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a (click)="onLogout()" mat-menu-item>Se deconnecter</a>
+      <a routerLink="./pharmacies" mat-menu-item>Mon espace</a>
+    </mat-menu>
+  </div>
 </nav>

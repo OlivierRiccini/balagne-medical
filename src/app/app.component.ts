@@ -72,4 +72,9 @@ export class AppComponent implements OnInit, OnDestroy {
       data: notifData
     });
   }
+
+  public onLogout(): void {
+    this.authService.doLogoutUser('pharmacies');
+    this.userInterfaceService.success('Déconnecté!');
+  }
 }

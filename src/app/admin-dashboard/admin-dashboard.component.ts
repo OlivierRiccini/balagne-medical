@@ -2,6 +2,9 @@ import { Component, ViewChild, OnDestroy } from '@angular/core';
 import { CatalogService } from '../services/catalog.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { IUser } from '../models/user';
+import { UserService } from '../services/user.service';
+import { UserInterfaceService } from '../services/user-interface.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -15,9 +18,7 @@ export class AdminDashboardComponent implements OnDestroy {
   private subscription = new Subscription();
 
   constructor(private catalogService: CatalogService, private fb: FormBuilder) {
-    this.form = this.fb.group({
-      file: ['', []]
-    });
+    this.createForm();
   }
 
   public onUpload(): void {
@@ -30,6 +31,12 @@ export class AdminDashboardComponent implements OnDestroy {
 
   public ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  private createForm(): void {
+    this.form = this.fb.group({
+      file: ['', []]
+    });
   }
 
 }

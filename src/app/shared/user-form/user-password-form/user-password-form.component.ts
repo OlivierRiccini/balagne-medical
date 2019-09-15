@@ -42,7 +42,7 @@ export class UserPasswordFormComponent implements OnDestroy {
     if (this.form.invalid) {
       return;
     }
-    const comfirmResponse = confirm(`Êtes vous certain de vouloir changer votre mot de pass?
+    const comfirmResponse = confirm(`Êtes vous certain de vouloir changer votre mot de passe?
     Si oui vous allez être redirigé vers la page d'authentification une fois l'enregistrement réussit`);
     if (comfirmResponse) {
       this.processRequest();
@@ -60,7 +60,7 @@ export class UserPasswordFormComponent implements OnDestroy {
     const subscription = this.authService.updatePassword(this.currentUser.id, oldPassword, newPassword).subscribe(
       () => {
         this.form.reset();
-        this.userInterfaceService.success('Nouveau password enregistré avec succès!');
+        this.userInterfaceService.success('Nouveau mot de passe enregistré avec succès! Vous allez le recevoir par email...');
         this.authService.doLogoutUser('pharmacies');
         this.isEditMode = false;
       },

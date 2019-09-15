@@ -19,6 +19,9 @@
             <li>
                 <a routerLink="./contact" routerLinkActive="active-link"  (click)="sidenav.toggle()">Nous contacter</a>
             </li>
+            <li *ngIf="!!currentUser">
+                <a (click)="onLogout(); sidenav.toggle()">Se deconnecter</a>
+            </li>
         </ul>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -27,7 +30,7 @@
             <button mat-button (click)="sidenav.toggle()">
                 <i class="material-icons">menu</i>
             </button>
-            <span>{{ currentUser.username }}</span>
+            <span>{{ currentUser?.username }}</span>
             <img src="../assets/images/balagne-medical.png" routerLink="/" />
         </header>
         <div [ngClass]="{'desktop-wrapper': deviseSize === 'desktop', 'mobile-wrapper': deviseSize === 'mobile'}">

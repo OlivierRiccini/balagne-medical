@@ -15,7 +15,7 @@ export class UserInterfaceService {
   }
 
   public success(message: string): void {
-    this.notificationEvent.next({ message, type: 'succes' });
+    this.notificationEvent.next({ message, type: 'success' });
   }
 
   public error(message: string): void {

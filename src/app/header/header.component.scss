@@ -60,9 +60,18 @@ nav {
     }   
 }
 
-// .sticky {
-//     position: fixed;
-//     width: 100vw;
-//     top: 0;
-//     z-index: 1;
-// }
+.profile-menu-container {
+    height: 100%;
+}
+
+.profile-btn {
+    border: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}

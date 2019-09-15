@@ -46,17 +46,8 @@ export const PROFESSIONALS_CONTENT: IContent = {
             ]
         },
         {
-            title: { text: 'Matériel pour les professionnels de santé et pansements' },
+            title: { text: 'Matériel pour les professionnels de santé' },
             sections: [
-                {
-                    title: { text: 'Le traitement des plaies : Les compresses, les pansements et les désinfectants' },
-                    paragraphes: [
-                        {
-                            text: `Pour le soin des plaies et des blessures, nous avons dans notre point de vente une
-                            large gamme de  désinfectants et de pansement adaptés.`
-                        }
-                    ]
-                },
                 {
                     title: { text: 'Petite instrumentation médico-chirurgicale' },
                     paragraphes: [
@@ -72,6 +63,20 @@ export const PROFESSIONALS_CONTENT: IContent = {
                         {
                             text: `Des tensiomètres électroniques ou manuels, aux otoscopes et autres stéthoscopes,
                             toute la gamme de matériel à visé diagnostique est à votre disposition dans notre espace de vente.`
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            title: { text: 'Pansements' },
+            sections: [
+                {
+                    title: { text: 'Le traitement des plaies : Les compresses, les pansements et les désinfectants' },
+                    paragraphes: [
+                        {
+                            text: `Pour le soin des plaies et des blessures, nous avons dans notre point de vente une
+                            large gamme de  désinfectants et de pansement adaptés.`
                         }
                     ]
                 }
