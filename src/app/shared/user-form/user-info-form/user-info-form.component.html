@@ -8,8 +8,7 @@
     </div>
     <form 
         [formGroup]="form" 
-        (ngSubmit)="onSubmit(form, formDirective)"
-        #formDirective="ngForm"
+        (ngSubmit)="onSubmit()"
         (keydown.enter)="$event.preventDefault()">
         <mat-form-field>
             <input matInput placeholder="Saisissez votre nom" id="username" formControlName="username" required>

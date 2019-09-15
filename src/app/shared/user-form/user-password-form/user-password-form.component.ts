@@ -48,9 +48,9 @@ export class UserPasswordFormComponent implements OnDestroy {
       this.processRequest();
     } else {
       this.isEditMode = false;
-        this.form.reset();
-        form.reset();
-        this.form.disable();
+      formDirective.resetForm();
+      form.reset();
+      this.form.disable();
     }
   }
 
