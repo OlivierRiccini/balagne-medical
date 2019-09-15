@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { checkPasswords } from '../../../utils/validators/check-passwords';
 import { IUser } from 'src/app/models/user';
 import { UserInterfaceService } from 'src/app/services/user-interface.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-password-form',
   templateUrl: './user-password-form.component.html',
   styleUrls: ['./user-password-form.component.scss', '../user-form.component.scss']
 })
-export class UserPasswordFormComponent implements OnInit {
+export class UserPasswordFormComponent implements OnDestroy {
   public form: FormGroup;
   public isEditMode = false;
+  public isSending = false;
   private currentUser: IUser;
+  private subscription = new Subscription();
 
   constructor(
     private authService: AuthService,
@@ -24,7 +27,8 @@ export class UserPasswordFormComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   public onToggleEditMode(): void {
@@ -38,7 +42,8 @@ export class UserPasswordFormComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    const comfirmResponse = confirm(`Êtes vous certain de vouloir changer votre mot de pass?`);
+    const comfirmResponse = confirm(`Êtes vous certain de vouloir changer votre mot de pass?
+    Si oui vous allez être redirigé vers la page d'authentification une fois l'enregistrement réussit`);
     if (comfirmResponse) {
       this.processRequest();
     } else {
@@ -49,9 +54,10 @@ export class UserPasswordFormComponent implements OnInit {
   }
 
   private processRequest(): void {
+    this.isSending = true;
     const oldPassword: string = this.form.value.currentPassword;
     const newPassword: string = this.form.value.newPassword;
-    this.authService.updatePassword(this.currentUser.id, oldPassword, newPassword).subscribe(
+    const subscription = this.authService.updatePassword(this.currentUser.id, oldPassword, newPassword).subscribe(
       () => {
         this.form.reset();
         this.userInterfaceService.success('Nouveau password enregistré avec succès!');
@@ -61,8 +67,10 @@ export class UserPasswordFormComponent implements OnInit {
       () => {
         this.userInterfaceService.success(`Hummm le mot de passe n'a pas pu être enregistré...`);
         this.form.get('currentPassword').setErrors({ passwordNotValid: true });
-      }
+      },
+      () => this.isSending = false
     );
+    this.subscription.add(subscription);
   }
 
   private createForm(): void {
@@ -76,7 +84,7 @@ export class UserPasswordFormComponent implements OnInit {
   }
 
   private hanldePassChangesAfterConfirm(): void {
-    this.form.get('newPassword').valueChanges.subscribe(
+    const subscription = this.form.get('newPassword').valueChanges.subscribe(
       (value: string) => {
         if (this.form.get('confirmPassword').value === value) {
           this.form.get('confirmPassword').setErrors(null);
@@ -85,6 +93,7 @@ export class UserPasswordFormComponent implements OnInit {
         }
       }
     );
+    this.subscription.add(subscription);
   }
 
 }

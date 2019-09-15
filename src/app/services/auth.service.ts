@@ -72,6 +72,19 @@ export class AuthService {
     return this.http.patch<any>(`http://localhost:3000/users/${userId}/update-password`, {oldPassword, newPassword});
   }
 
+  public updateProfile(user: IUser, userId: string): Observable<boolean> {
+    return this.http.put<any>(`http://localhost:3000/users/${userId}/update`, user).pipe(
+      tap(response => {
+        const updatedUser: IUser = response;
+        this.storeCurrentUser(updatedUser);
+        this.currentUserChange.next(updatedUser);
+      }),
+      mapTo(true),
+      catchError(error => {
+        return of(false);
+      }));
+  }
+
   public isLoggedIn(): boolean {
     return !!this.getJwtToken();
   }

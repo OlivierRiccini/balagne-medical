@@ -1,21 +1,42 @@
 <div class="flex-wrapper">
     <p *ngIf="targetPath === 'pharmacies'">Cette page est reservée aux pharmaciens. Si vous n'avez pas d'identifiants veuillez nous contacter.</p>
     <p *ngIf="targetPath === 'admin-dashboard'">Cette page est reservée aux administrateurs du site.</p>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
-        <mat-form-field>
-            <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
-            <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Entrez votre mot de pass" [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
-            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-        </mat-form-field>
-        <div id="buttons-box">
-            <button mat-button>S'identifer</button>
-            <p>Pas d'identifiants? </p>
-            <button type="button" mat-button routerLink="../contact">Nous contacter</button>
+    <div class="container">
+        <div *ngIf="isSending" class="spinner-wrapper">
+            <mat-spinner></mat-spinner>
         </div>
-    </form>
+        <div *ngIf="!isSending" class="form-container">
+            <form  *ngIf="!forgotPassword" [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+                <mat-form-field>
+                    <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
+                    <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Mot de pass" [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div id="buttons-box">
+                    <button type="submit" mat-button>S'identifer</button>
+                    <span class="clickable-span" (click)="onToggleForgotPassword()">Mot de pass oublié</span>
+                    <p>Pas d'identifiants? </p>
+                    <button type="button" mat-button routerLink="../contact">Nous contacter</button>
+                </div>
+            </form>
+            <form 
+                *ngIf="forgotPassword"
+                [formGroup]="forgotPassForm"
+                (ngSubmit)="onSubmitForgotPassword()"
+                (keydown.enter)="$event.preventDefault()">
+                <mat-form-field>
+                    <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
+                    <mat-error *ngIf="form.get('email').invalid">Email invalid</mat-error>
+                </mat-form-field>
+                <span class="clickable-span"  (click)="onToggleForgotPassword()">Annuler</span>
+                <button type="submit" mat-button>Envoyer la demande</button>
+            </form>
+        </div>
+    </div>
+
 </div>

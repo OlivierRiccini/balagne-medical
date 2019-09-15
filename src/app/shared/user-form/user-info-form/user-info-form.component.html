@@ -11,11 +11,15 @@
         (ngSubmit)="onSubmit(form, formDirective)"
         #formDirective="ngForm"
         (keydown.enter)="$event.preventDefault()">
-        <mat-form-field *ngIf="!isLoggedIn">
-            <input matInput placeholder="Saisissez votre nom" id="name" formControlName="username" required>
+        <mat-form-field>
+            <input matInput placeholder="Saisissez votre nom" id="username" formControlName="username" required>
             <mat-error *ngIf="form.get('username').invalid">Vous devez saisir votre nom</mat-error>
         </mat-form-field>
-        <mat-form-field *ngIf="!isLoggedIn">
+        <mat-form-field>
+            <input matInput placeholder="Saisissez le nomde votre entreprise" id="organizationName" formControlName="organizationName">
+            <mat-error *ngIf="form.get('organizationName').invalid">Vous devez saisir le nomde votre entreprise</mat-error>
+        </mat-form-field>
+        <mat-form-field>
             <input matInput placeholder="Entrez votre email" id="email" formControlName="email" required>
             <mat-error *ngIf="form.get('email').invalid">Email invalide</mat-error>
         </mat-form-field>

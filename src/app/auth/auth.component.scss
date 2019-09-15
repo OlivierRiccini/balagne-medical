@@ -10,6 +10,21 @@ p {
     margin-bottom: 35px; 
 }
 
+// .container {
+//     position: relative;
+// }
+
+// .spinner-wrapper {
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: rgba(0, 0, 0, .3);
+//     z-index: 1;
+// }
+
 form {
     border: 1px solid $brand-green;
     border-radius: 3px;
@@ -30,5 +45,15 @@ form {
         background-color: #fff;
         border: 1px solid $brand-green;
         color: $brand-green;
+    }
+}
+
+.clickable-span {
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
     }
 }

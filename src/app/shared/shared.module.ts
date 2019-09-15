@@ -8,6 +8,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserInfoFormComponent } from './user-form/user-info-form/user-info-form.component';
 import { UserPasswordFormComponent } from './user-form/user-password-form/user-password-form.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import { UserPasswordFormComponent } from './user-form/user-password-form/user-p
     UserInfoFormComponent,
     UserPasswordFormComponent
   ],
-  providers: [FormGroupDirective]
+  providers: [
+    FormGroupDirective,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ]
 })
 
 export class SharedModule { }
