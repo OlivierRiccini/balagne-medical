@@ -55,7 +55,7 @@ export class AuthService {
         }),
         mapTo(true),
         catchError(error => {
-          let message: string; 
+          let message: string;
           if (error.error.message === 'Wrong password') {
             message = `L'email et le mot de passe ne correspondent pas`;
           } else {
