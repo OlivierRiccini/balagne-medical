@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { checkPasswords } from '../../../utils/validators/check-passwords';
 import { IUser } from 'src/app/models/user';
@@ -38,7 +38,7 @@ export class UserPasswordFormComponent implements OnDestroy {
     }
   }
 
-  public onSubmit() {
+  public onSubmit(form: FormGroup, formDirective: FormGroupDirective) {
     if (this.form.invalid) {
       return;
     }
@@ -49,6 +49,7 @@ export class UserPasswordFormComponent implements OnDestroy {
     } else {
       this.isEditMode = false;
         this.form.reset();
+        form.reset();
         this.form.disable();
     }
   }
