@@ -17,7 +17,14 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             Comme la plupart des dispositifs médicaux, ceux ci, sont remboursés par la sécurité sociale.`
                         }
                     ],
-                    images: [{ url: './assets/images/wheelchair.png' }, { url: './assets/images/bed.png' }]
+                    images: [
+                        { url: './assets/images/image2.jpeg' },
+                        { url: './assets/images/image3.jpeg' },
+                        { url: './assets/images/image4.jpeg' },
+                        { url: './assets/images/image5.jpeg' },
+                        { url: './assets/images/image6.jpeg' },
+                        { url: './assets/images/image7.jpeg' }
+                    ]
                 }
             ]
         },
@@ -39,6 +46,11 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             text: `Dans des pathologies plus invalidantes et permanentes le
                             fauteuil électrique fait partie de notre domaine de compétence avec une expérience de 15 ans.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image8.jpeg' },
+                        { url: './assets/images/image9.jpeg' },
+                        { url: './assets/images/image10.jpeg' }
                     ]
                 },
                 {
@@ -52,6 +64,9 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             de la distance parcourue lors de vos déplacements, notre équipe sera la pour vous accompagner
                             et vous guider pour le meilleur choix.`,
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image11.jpeg' }
                     ]
                 },
                 {
@@ -72,6 +87,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             épondre aux besoins de chaque utilisateur, et en cas de fatigue pas de panique,
                             vous avez la possibilité de vous asseoir sur la plupart de nos modèles.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image12.jpeg' },
+                        { url: './assets/images/image13.jpeg' }
                     ]
                 },
                 {
@@ -88,6 +107,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             et notre équipe sera la pour vous guider quant à votre choix (en se basant, bien sur,
                             sur la prescription médicale).`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image14.jpeg' },
+                        { url: './assets/images/image15.jpeg' }
                     ]
                 }
             ]
@@ -106,6 +129,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             text: `Une sélection de crèmes protectrices et apaisantes, des lotions lavantes
                             et hydratantes vous garantiront hygiène et confort, garant d’un bien être supplémentaire.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image16.jpeg' },
+                        { url: './assets/images/image17.jpeg' }
                     ]
                 },
                 {
@@ -126,6 +153,11 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             plusieurs types de couches culottes sont disponibles.
                             Nos produits sont hypoallergéniques et assurent une protection cutanée optimale.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image18.jpeg' },
+                        { url: './assets/images/image19.jpeg' },
+                        { url: './assets/images/image20.jpeg' }
                     ]
                 }
 
@@ -148,6 +180,9 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             Nous disposons de crèmes dessert, de plats mixés aux arômes variés, ou de boissons lactées,
                             afin de répondre aux goûts de chacun.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image21.jpeg' }
                     ]
                 }
             ]
@@ -164,6 +199,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             Le système de relevage, très simple d’utilisation, vous aide à vous relever par
                             simple pression de la télécommande.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image22.jpeg' },
+                        { url: './assets/images/image23.jpeg' }
                     ]
                 },
                 {
@@ -177,6 +216,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             de votre douche sans risque de chute, le tabouret de bain ou la chaise de douche
                             facilite la toilette et sécurise la salle de bains.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image24.jpeg' },
+                        { url: './assets/images/image25.jpeg' }
                     ]
                 },
                 {
@@ -189,6 +232,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             les toilettes d’une dizaine de centimètres, mais aussi différentes gammes de chaise toilette,
                             pour éviter le transfert aux toilettes aux personnes ayant des difficultés à se déplacer.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image26.jpeg' },
+                        { url: './assets/images/image27.jpeg' }
                     ]
                 }
             ]
@@ -207,6 +254,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             de longueur des membres inférieurs, en résumé les chaussures, et les semelles orthopédiques vont
                             faciliter le déplacement des personnes concernés.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image28.jpeg' },
+                        { url: './assets/images/image29.jpeg' }
                     ]
                 },
                 {
@@ -229,6 +280,14 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             et vous guidons vers le modèle adapté à vos besoins. Les professionnels de Balagne Medical
                             Services sauront répondre à toutes vos questions.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image30.jpeg' },
+                        { url: './assets/images/image31.jpeg' },
+                        { url: './assets/images/image32.jpeg' },
+                        { url: './assets/images/image33.jpeg' },
+                        { url: './assets/images/image34.jpeg' },
+                        { url: './assets/images/image35.jpeg' }
                     ]
                 }
             ]
@@ -243,6 +302,10 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             sont proposés à la vente ou la location toujours remboursé par la sécurité sociale.
                             Pour bébé nous assurons également la location de balance.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image36.jpeg' },
+                        { url: './assets/images/image37.jpeg' }
                     ]
                 }
             ]

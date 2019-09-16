@@ -22,6 +22,10 @@ export const PROFESSIONALS_CONTENT: IContent = {
                         {
                             text: `Disponibles en plusieurs formats, nos produits peuvent être facilement emportés en intervention.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image38.jpeg' },
+                        { url: './assets/images/image39.jpeg' }
                     ]
                 },
                 {
@@ -41,6 +45,10 @@ export const PROFESSIONALS_CONTENT: IContent = {
                             les meilleures marques, tous nos gants d’examen, alliant la sécurité et le confort
                             nécessaire à vos différents examens médicaux.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image40.jpeg' },
+                        { url: './assets/images/image41.jpeg' }
                     ]
                 }
             ]
@@ -55,6 +63,9 @@ export const PROFESSIONALS_CONTENT: IContent = {
                             text: `Pour les soins et examens médicaux, nous vous proposons  toute la gamme d’instrument
                             et de petit matériel (ciseaux, pinces, bistouris, lames, kits à usage unique…).`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image44.jpeg' }
                     ]
                 },
                 {
@@ -64,6 +75,10 @@ export const PROFESSIONALS_CONTENT: IContent = {
                             text: `Des tensiomètres électroniques ou manuels, aux otoscopes et autres stéthoscopes,
                             toute la gamme de matériel à visé diagnostique est à votre disposition dans notre espace de vente.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image45.jpeg' },
+                        { url: './assets/images/image46.jpeg' }
                     ]
                 }
             ]
@@ -75,9 +90,14 @@ export const PROFESSIONALS_CONTENT: IContent = {
                     title: { text: 'Le traitement des plaies : Les compresses, les pansements et les désinfectants' },
                     paragraphes: [
                         {
-                            text: `Pour le soin des plaies et des blessures, nous avons dans notre point de vente une
-                            large gamme de  désinfectants et de pansement adaptés.`
+                            text: `Pour le soin des plaies et des blessures,
+                            nous avons dans notre point de vente une large
+                            gamme de  désinfectants et de pansement adaptés.`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image42.jpeg' },
+                        { url: './assets/images/image43.jpeg' }
                     ]
                 }
             ]

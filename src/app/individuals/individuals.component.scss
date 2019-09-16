@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     padding: 2rem;
     img {
-        max-width: 30%;
+        max-width: 15%;
     }
 }
