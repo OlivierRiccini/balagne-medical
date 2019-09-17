@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class CatalogService {
       'Accept': 'application/json'
     });
     const options = { headers: headers };
-   return this.http.post('http://localhost:3000/catalog', formData, options)
+   return this.http.post(`${environment.apiUrl}/catalog`, formData, options)
     .pipe(
       map(res => JSON.stringify(res)),
       catchError(err => err)
@@ -34,11 +35,11 @@ export class CatalogService {
   }
 
   public getPDFCatalog(): Observable<Blob> {
-    return this.http.get('http://localhost:3000/catalog',
+    return this.http.get(`${environment.apiUrl}/catalog`,
     { responseType: 'blob' });
   }
 
   public showFileNames() {
-    return this.http.get('http://localhost:3000/catalog');
+    return this.http.get(`${environment.apiUrl}/catalog`);
   }
 }

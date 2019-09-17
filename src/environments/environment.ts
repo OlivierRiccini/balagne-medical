@@ -4,9 +4,14 @@
 
 export const environment = {
   production: false,
-  apiUrl: `http://localhost:3000`,
+  // apiUrl: `http://localhost:3000`,
+  // fromEmail: 'contact@balagnemedical.com',
+  // toEmail: 'info@olivierriccini.com'
+
+  /// waiting to solve issues
+  apiUrl: `http://balagne-medical-api.herokuapp.com`,
   fromEmail: 'contact@balagnemedical.com',
-  toEmail: 'info@olivierriccini.com'
+  toEmail: 'contact@balagnemedical.com'
 };
 
 /*
