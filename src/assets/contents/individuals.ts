@@ -16,14 +16,6 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             d’un fauteuil coquille, un lit médicalisé, ou encore un lève-personne.
                             Comme la plupart des dispositifs médicaux, ceux ci, sont remboursés par la sécurité sociale.`
                         }
-                    ],
-                    images: [
-                        { url: './assets/images/image2.jpeg' },
-                        { url: './assets/images/image3.jpeg' },
-                        { url: './assets/images/image4.jpeg' },
-                        { url: './assets/images/image5.jpeg' },
-                        { url: './assets/images/image6.jpeg' },
-                        { url: './assets/images/image7.jpeg' }
                     ]
                 },
                 {
@@ -59,6 +51,14 @@ export const INDIVIDUALS_CONTENT: IContent = {
                         {
                             text: `-> Une mutuelle si vous n’êtes pas sous ALD`
                         }
+                    ],
+                    images: [
+                        { url: './assets/images/image2.jpeg' },
+                        { url: './assets/images/image3.jpeg' },
+                        { url: './assets/images/image4.jpeg' },
+                        { url: './assets/images/image5.jpeg' },
+                        { url: './assets/images/image6.jpeg' },
+                        { url: './assets/images/image7.jpeg' }
                     ]
                 }
             ]

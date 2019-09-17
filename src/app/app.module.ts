@@ -19,6 +19,7 @@ import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
 import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
+import { CatalogComponent } from './catalog/catalog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
     HeaderComponent,
     FooterComponent,
     AuthComponent,
-    PartnersComponent
+    PartnersComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserAnimationsModule,

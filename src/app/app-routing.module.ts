@@ -10,6 +10,7 @@ import { AuthGuardActivate } from './services/auth-guard.service';
 import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
 import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
+import { CatalogComponent } from './catalog/catalog.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'services-particuliers', component: IndividualsComponent },
     { path: 'services-professionnels', component: ProfessionalsComponent },
     { path: 'pharmacies', component: PharmacistsComponent, canActivate: [AuthGuardActivate] },
+    { path: 'catalogue', component: CatalogComponent, canActivate: [AuthGuardActivate] },
     { path: 'nos-partenaires', component: PartnersComponent },
     { path: 'contact',  component: ContactComponent },
     { path: 'mentions-legales',  component: TermsOfUseComponent },
