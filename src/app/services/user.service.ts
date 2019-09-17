@@ -18,4 +18,8 @@ export class UserService {
   public create(user: IUser): Observable<any> {
     return this.http.post(`${environment.apiUrl}/users/create`, user);
   }
+
+  public delete(userId: string): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/users/${userId}`);
+  }
 }

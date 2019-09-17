@@ -37,3 +37,12 @@ table {
 button {
     margin-right: .5rem;
 }
+
+.delete-icon {
+    cursor: pointer;
+    color: $notifications-red;
+    opacity: .65;
+    &:hover {
+        opacity: 1;
+    }
+}
