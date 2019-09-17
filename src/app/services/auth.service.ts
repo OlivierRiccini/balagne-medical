@@ -7,8 +7,7 @@ import { ICredentials, IForgotPassword } from '../models/auth';
 import { IUser, IPhone } from '../models/user';
 import { Router } from '@angular/router';
 import { UserInterfaceService } from './user-interface.service';
-
-const config = { apiUrl: 'http://localhost:3000/auth' };
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,7 @@ export class AuthService {
   }
 
   public register(user: IUser): Observable<boolean> {
-    return this.http.post<any>(`${config.apiUrl}/register`, user, { observe: 'response' as 'body' })
+    return this.http.post<any>(`${environment.apiUrl}/register`, user, { observe: 'response' as 'body' })
       .pipe(
         tap(response => {
           const jwt = response.body.jwt;
@@ -44,7 +43,7 @@ export class AuthService {
   }
 
   public login(credentials: ICredentials, redirectionUrl: string): Observable<boolean> {
-    return this.http.post<any>(`${config.apiUrl}/login`, credentials, { observe: 'response' as 'body' })
+    return this.http.post<any>(`${environment.apiUrl}/login`, credentials, { observe: 'response' as 'body' })
       .pipe(
         tap(response => {
           const jwt = response.body.jwt;
@@ -77,11 +76,11 @@ export class AuthService {
   }
 
   public updatePassword(userId: string, oldPassword: string, newPassword: string): Observable<any> {
-    return this.http.patch<any>(`http://localhost:3000/users/${userId}/update-password`, {oldPassword, newPassword});
+    return this.http.patch<any>(`${environment.apiUrl}/users/${userId}/update-password`, {oldPassword, newPassword});
   }
 
   public updateProfile(user: IUser, userId: string): Observable<boolean> {
-    return this.http.put<any>(`http://localhost:3000/users/${userId}/update`, user).pipe(
+    return this.http.put<any>(`${environment.apiUrl}/users/${userId}/update`, user).pipe(
       tap(response => {
         const updatedUser: IUser = response;
         this.storeCurrentUser(updatedUser);
@@ -109,7 +108,7 @@ export class AuthService {
     });
     const options = { headers: headers, observe: 'response' as 'body' };
     const user: IUser = this.getCurrentUser();
-    return this.http.post<any>(`${config.apiUrl}/refresh`, user, options).pipe(
+    return this.http.post<any>(`${environment.apiUrl}/refresh`, user, options).pipe(
       tap((response: any) => {
         const jwt = response.body.jwt;
         const refreshToken = response.body['refresh-token'];
@@ -118,19 +117,19 @@ export class AuthService {
   }
 
   public forgotPassword(contact: IForgotPassword): Observable<any>  {
-    return this.http.post<any>(`${config.apiUrl}/forgot-password`, contact);
+    return this.http.post<any>(`${environment.apiUrl}/forgot-password`, contact);
   }
 
   public checkEmailIsTaken(email: string, userId?: string): Observable<any>  {
-    return this.http.post<any>(`${config.apiUrl}/email-already-taken`, {email, userId});
+    return this.http.post<any>(`${environment.apiUrl}/email-already-taken`, {email, userId});
   }
 
   public checkPhoneIsTaken(phone: IPhone, userId?: string): Observable<any>  {
-    return this.http.post<any>(`${config.apiUrl}/phone-already-taken`, {phone, userId});
+    return this.http.post<any>(`${environment.apiUrl}/phone-already-taken`, {phone, userId});
   }
 
   public checkPasswordIsValid(credentials: ICredentials): Observable<any>  {
-    return this.http.post<any>(`${config.apiUrl}/password-is-valid`, credentials);
+    return this.http.post<any>(`${environment.apiUrl}/password-is-valid`, credentials);
   }
 
   public getJwtToken() {
