@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { UserInterfaceService } from 'src/app/services/user-interface.service';
 import { IUser } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact-form',
@@ -40,9 +41,8 @@ export class ContactFormComponent implements OnDestroy {
 
     this.isSending = true;
     const email: IEmail = {
-      from: 'contact@balagnemedical.com',
-      // to: 'contact@balagnemedical.com',
-      to: 'info@olivierriccini.com',
+      from: environment.fromEmail,
+      to: environment.toEmail,
       subject: `Message de ${this.form.value.name.toUpperCase()} à partir du site web`,
       html: `
         <strong>Nom du contact: </strong> <span>${this.form.value.name}</span>

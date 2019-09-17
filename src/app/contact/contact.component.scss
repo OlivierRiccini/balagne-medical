@@ -5,13 +5,6 @@
     flex-flow: row wrap;
     box-sizing: border-box;
     justify-content: space-between;
-    height: calc(
-        100vh - #{$contact-row-height}
-        - #{$header-height}
-        - #{$footer-height}
-        - #{$desktop-wrapper-padding-top}
-        - #{$desktop-wrapper-padding-bottom}
-    );
 }
 
 .col {
@@ -19,7 +12,6 @@
     width: 48%;
     box-sizing: border-box;
     display: flex;
-    height: 100%;
 }
 
 .col:first-child {

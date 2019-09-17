@@ -25,6 +25,41 @@ export const INDIVIDUALS_CONTENT: IContent = {
                         { url: './assets/images/image6.jpeg' },
                         { url: './assets/images/image7.jpeg' }
                     ]
+                },
+                {
+                    title: { text: `Un service de location personnalisé, un personnel qualifié` },
+                    paragraphes: [
+                        {
+                            text: `Balagne Medical Services à pour volonté première de vous offrir un
+                            service de proximité, au sein de notre équipe nous vous conseillons sur le
+                            choix de votre matériel médical en fonction de vos besoins.`
+                        },
+                        {
+                            text: `Selon le matériel loué, notre technicien se déplace à votre domicile
+                            pour son installation. Avec discrétion et efficacité, nous effectuons chez
+                            vous la mise en service du matériel médical. Vous bénéficiez de notre savoir-faire,
+                            de nos conseils et nous sommes là aussi pour répondre à toutes vos questions.`
+                        },
+                        {
+                            text: `Avant et après chaque location,
+                            le matériel médical est vérifié, testé, nettoyé et désinfecté
+                            selon les normes sanitaires en vigueur.`
+                        }
+                    ]
+                },
+                {
+                    title: { text: `Les conditions requises pour la location du matériel médical:` },
+                    paragraphes: [
+                        {
+                            text: `-> une ordonnance de location`
+                        },
+                        {
+                            text: `-> une attestation de carte Vitale`
+                        },
+                        {
+                            text: `-> Une mutuelle si vous n’êtes pas sous ALD`
+                        }
+                    ]
                 }
             ]
         },
