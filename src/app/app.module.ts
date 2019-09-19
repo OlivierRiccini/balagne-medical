@@ -20,6 +20,7 @@ import { AuthComponent } from './auth/auth.component';
 import { PartnersComponent } from './partners/partners.component';
 import { AuthAdminGuardActivate } from './services/auth-admin-guard.service';
 import { CatalogComponent } from './catalog/catalog.component';
+import { DataComponent } from './data/data.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CatalogComponent } from './catalog/catalog.component';
     FooterComponent,
     AuthComponent,
     PartnersComponent,
-    CatalogComponent
+    CatalogComponent,
+    DataComponent
   ],
   imports: [
     BrowserAnimationsModule,
