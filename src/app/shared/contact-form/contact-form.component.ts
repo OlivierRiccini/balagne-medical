@@ -56,8 +56,13 @@ export class ContactFormComponent implements OnDestroy {
 
     const subscription = this.mailService.send(email).subscribe(
       () => this.userInterfaceService.success(`Message envoyé! Nous vous reviendrons dès que possible`),
-      (error) => this.userInterfaceService.error(`Ooops, le message n'a pas pu être envoyé...
-        veuillez essayer d'utiliser notre adresse email ci-dessus, merci!`),
+      (error) => {
+        this.userInterfaceService.error(`Ooops, le message n'a pas pu être envoyé...
+        veuillez essayer d'utiliser notre adresse email ci-dessus, merci!`);
+        this.isSending = false;
+        formDirective.resetForm();
+        form.reset();
+      },
       () => {
         formDirective.resetForm();
         form.reset();
