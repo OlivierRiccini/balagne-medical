@@ -7,7 +7,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
             sections: [
                 {
                     title: {
-                        text: `Location de fauteuil roulant, fauteuil de transfert, fauteuil à poussé, fauteuils coquilles,
+                        text: `Location de fauteuil roulant, fauteuil de transfert, fauteuil à pousser, fauteuils coquilles,
                         lits médicalisés, soulève-malade etc…`
                     },
                     paragraphes: [
@@ -43,13 +43,13 @@ export const INDIVIDUALS_CONTENT: IContent = {
                     title: { text: `Les conditions requises pour la location du matériel médical:` },
                     paragraphes: [
                         {
-                            text: `-> une ordonnance de location`
+                            text: `-> une ordonance`
                         },
                         {
-                            text: `-> une attestation de carte Vitale`
+                            text: `-> une attestation ou votre carte vitale`
                         },
                         {
-                            text: `-> Une mutuelle si vous n’êtes pas sous ALD`
+                            text: `-> votre mutuelle`
                         }
                     ],
                     images: [
@@ -108,7 +108,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
                     title: { text: 'Les déambulateurs et les rollators' },
                     paragraphes: [
                         {
-                            text: `Votre kinésithérapeute saura vous éduquer à l’utilisation optimal d’un déambulateur
+                            text: `Votre kinésithérapeute saura vous éduquer à l’utilisation optimale d’un déambulateur
                             ou un rollator. Vous pourrez vous déplacer avec davantage d’autonomie,
                             à l’intérieur ou à l’extérieur de chez vous, en sécurité.`,
                         },
@@ -117,9 +117,9 @@ export const INDIVIDUALS_CONTENT: IContent = {
                         },
                         {
                             text: `Pour l’extérieur, nous vous conseillons plus nos rollators 2 roues, 3 roues et 4 roues.
-                            rès stables, ils vont vous permettre d’éviter les chutes.
+                            Très stables, ils vont vous permettre d’éviter les chutes.
                             Les adaptations de rollator sont simples à réaliser et permettent de
-                            épondre aux besoins de chaque utilisateur, et en cas de fatigue pas de panique,
+                            Répondre aux besoins de chaque utilisateur, et en cas de fatigue pas de panique,
                             vous avez la possibilité de vous asseoir sur la plupart de nos modèles.`
                         }
                     ],
@@ -283,7 +283,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
                     title: { text: 'Les chaussures orthopédiques' },
                     paragraphes: [
                         {
-                            text: `Les chaussures orthopédiques sont conçus pour la santé de vos pieds.
+                            text: `Les chaussures orthopédiques sont conçues pour la santé de vos pieds.
                             les chaussures, et les semelles orthopédiques sont fortement recommandées pour les personnes âgées,
                             mais aussi celles souffrant d’hallux valgus, de polyarthrite rhumatoïde ou d’inégalité
                             de longueur des membres inférieurs, en résumé les chaussures, et les semelles orthopédiques vont
@@ -334,7 +334,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
                     paragraphes: [
                         {
                             text: `Pour conserver ce moment privilégié de l’allaitement, différents tire-lait vous
-                            sont proposés à la vente ou la location toujours remboursé par la sécurité sociale.
+                            sont proposés à la vente ou la location toujours remboursés par la sécurité sociale.
                             Pour bébé nous assurons également la location de balance.`
                         }
                     ],

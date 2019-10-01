@@ -32,7 +32,7 @@ export const PROFESSIONALS_CONTENT: IContent = {
                     title: { text: 'La protection médicale : les draps et les gants d’examens' },
                     paragraphes: [
                         {
-                            text: `Peu importe votre spécialité, nos drap d’examens sont la pour protéger votre
+                            text: `Selon votre spécialité, nos drap d’examens sont la pour protéger votre
                             mobilier médical. Notre gamme de draps d’examen est importante, vous pouvez avoir
                             le choix de la qualité, de la couleur, plastifiés, ou encore gaufrés. Ils ont tous
                             étés conçus pour une vous assurer une protection optimale.`
@@ -60,7 +60,7 @@ export const PROFESSIONALS_CONTENT: IContent = {
                     title: { text: 'Petite instrumentation médico-chirurgicale' },
                     paragraphes: [
                         {
-                            text: `Pour les soins et examens médicaux, nous vous proposons  toute la gamme d’instrument
+                            text: `Pour les soins et examens médicaux, nous vous proposons toute la gamme d’instruments
                             et de petit matériel (ciseaux, pinces, bistouris, lames, kits à usage unique…).`
                         }
                     ],
