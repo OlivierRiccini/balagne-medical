@@ -119,7 +119,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
                             text: `Pour l’extérieur, nous vous conseillons plus nos rollators 2 roues, 3 roues et 4 roues.
                             Très stables, ils vont vous permettre d’éviter les chutes.
                             Les adaptations de rollator sont simples à réaliser et permettent de
-                            Répondre aux besoins de chaque utilisateur, et en cas de fatigue pas de panique,
+                            répondre aux besoins de chaque utilisateur, et en cas de fatigue pas de panique,
                             vous avez la possibilité de vous asseoir sur la plupart de nos modèles.`
                         }
                     ],
