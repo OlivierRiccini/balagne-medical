@@ -65,8 +65,12 @@ export class AuthComponent implements OnDestroy {
         res => {
           this.userInterfaceService.success('Un nouveau mot de passe vient de vous être envoyer par email');
           this.forgotPassword = false;
+          this.isSending = false;
         },
-        err => this.userInterfaceService.error(`Echec. Vérifiez vos identifiants ou contactez nous`),
+        err => {
+          this.userInterfaceService.error(`Echec. Vérifiez vos identifiants ou contactez nous`);
+          this.isSending = false;
+        },
         () => this.isSending = false
       );
     this.subscription.add(subscription);

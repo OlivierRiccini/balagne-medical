@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class CatalogComponent implements OnDestroy {
   private subscription = new Subscription();
   public pdfSrc: string;
+  public isSending = false;
 
   constructor(private catalogService: CatalogService) {
 
@@ -24,10 +25,12 @@ export class CatalogComponent implements OnDestroy {
   }
 
   private getCatalog(): void {
+    this.isSending = true;
     const subscription = this.catalogService.getPDFCatalog().subscribe(data => {
       const file = new Blob([data], { type: 'application/pdf' });
       const fileURL = URL.createObjectURL(file);
       this.pdfSrc = fileURL;
+      this.isSending = false;
     });
     this.subscription.add(subscription);
   }

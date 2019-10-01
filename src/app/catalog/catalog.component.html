@@ -1,4 +1,5 @@
-<pdf-viewer 
+<pdf-viewer
+    *ngIf="!isSending"
     [src]="pdfSrc" 
     [render-text]="true"
     [show-all]="true"
@@ -6,3 +7,6 @@
     [fit-to-page]="true"
     style="display: block;"
 ></pdf-viewer>
+<div *ngIf="isSending" class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+</div>
