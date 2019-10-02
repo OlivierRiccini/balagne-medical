@@ -10,7 +10,7 @@ export const PROFESSIONALS_CONTENT: IContent = {
                     paragraphes: [
                         {
                             text: `Balagne Medical Services vous propose une gamme complète de désinfectants
-                            sélectionnés selon vos besoins, qui vous garantiront l’hygiène de votre matériel médical e
+                            sélectionnés selon vos besoins, qui vous garantiront l’hygiène de votre matériel médical et
                              de l’environnement d’intervention.`
                         },
                         {
