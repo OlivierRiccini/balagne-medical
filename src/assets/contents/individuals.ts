@@ -43,7 +43,7 @@ export const INDIVIDUALS_CONTENT: IContent = {
                     title: { text: `Les conditions requises pour la location du matériel médical:` },
                     paragraphes: [
                         {
-                            text: `-> une ordonance`
+                            text: `-> une ordonnance`
                         },
                         {
                             text: `-> une attestation ou votre carte vitale`
